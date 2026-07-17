@@ -1,5 +1,5 @@
 # leetcode-solutions
-7 Days • 70 Problems | Solving LeetCode problems daily with explanations, optimized solutions, and progress tracking.
+My LeetCode journey in C++ featuring optimized solutions, algorithm explanations, complexity analysis, and daily coding progress.
 
 <!---LeetCode Topics Start-->
 # LeetCode Topics
