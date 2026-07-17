@@ -21,4 +21,12 @@ My LeetCode journey in C++ featuring optimized solutions, algorithm explanations
 |  |
 | ------- |
 | [0557-reverse-words-in-a-string-iii](https://github.com/Somu0707/leetcode-solutions/tree/master/0557-reverse-words-in-a-string-iii) |
+## Binary Search
+|  |
+| ------- |
+| [0278-first-bad-version](https://github.com/Somu0707/leetcode-solutions/tree/master/0278-first-bad-version) |
+## Interactive
+|  |
+| ------- |
+| [0278-first-bad-version](https://github.com/Somu0707/leetcode-solutions/tree/master/0278-first-bad-version) |
 <!---LeetCode Topics End-->
