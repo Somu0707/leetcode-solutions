@@ -20,11 +20,16 @@ This repository is a record of my continuous learning in Data Structures and Alg
 
 My goal is to become a better problem solver by writing clean, optimized, and well-documented solutions while maintaining consistency throughout my coding journey.
 
+## 🚀 Why This Repository?
+
+I believe consistency is the key to mastering Data Structures and Algorithms.
+
+This repository serves as my public coding journal, where I document my progress, learn from mistakes, and continuously improve my problem-solving skills through regular practice.
+
 ## 🔥 Current Challenge
 
-### 🚀 7 Days • 70 Problems
+🎯 Goal: Complete 70 LeetCode problems while improving speed, consistency, and problem-solving skills.
 
-🎯 Goal: Solve **70 LeetCode problems in 7 days**
 
 📅 Duration: 7 Days
 
@@ -58,11 +63,9 @@ My goal is to become a better problem solver by writing clean, optimized, and we
 **Overall Progress**
 
 ```text
-0 / 70 Problems
-□□□□□□□□□□ 0%
+3 / 70 Problems
+■■□□□□□□□□ 4%
 ```
-
-# Repository Stats
 
 ## 🏆 Repository Statistics
 
@@ -80,14 +83,14 @@ My goal is to become a better problem solver by writing clean, optimized, and we
 - LeetCode
 
 ## 📂 Repository Structure
-
-Each problem folder contains:
+Each problem directory is designed to include:
 
 - ✅ Optimized C++ Solution
-- ✅ Problem Explanation *(Coming Soon)*
-- ✅ Time Complexity *(Coming Soon)*
-- ✅ Space Complexity *(Coming Soon)*
-- ✅ Key Learning *(Coming Soon)*
+- 📝 Problem Summary
+- 💡 Approach & Explanation
+- ⏱️ Time Complexity
+- 💾 Space Complexity
+- 📚 Key Learning
 
 ## 🤝 Connect With Me
 
@@ -121,3 +124,9 @@ Each problem folder contains:
 | ------- |
 | [0278-first-bad-version](https://github.com/Somu0707/leetcode-solutions/tree/master/0278-first-bad-version) |
 <!---LeetCode Topics End-->
+
+---
+
+⭐ If you find this repository helpful, consider giving it a star.
+
+Happy Coding! 🚀
