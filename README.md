@@ -11,4 +11,12 @@ My LeetCode journey in C++ featuring optimized solutions, algorithm explanations
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0001-two-sum) |
+## Two Pointers
+|  |
+| ------- |
+| [0557-reverse-words-in-a-string-iii](https://github.com/Somu0707/leetcode-solutions/tree/master/0557-reverse-words-in-a-string-iii) |
+## String
+|  |
+| ------- |
+| [0557-reverse-words-in-a-string-iii](https://github.com/Somu0707/leetcode-solutions/tree/master/0557-reverse-words-in-a-string-iii) |
 <!---LeetCode Topics End-->
