@@ -1,4 +1,4 @@
-name: Hello Workflow
+name: LeetCode AI Automation
 
 on:
   push:
@@ -6,18 +6,28 @@ on:
       - main
 
 jobs:
-  hello:
+  detect-problem:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
-      - name: Print Message
+      - name: Detect Changed Files
+        id: changed
         run: |
-          echo "=================================="
-          echo "🚀 GitHub Action is Running!"
-          echo "Repository: ${{ github.repository }}"
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Triggered by: ${{ github.actor }}"
-          echo "=================================="
+          echo "Changed files:"
+          git diff --name-only HEAD^ HEAD
+
+      - name: Detect New Problem Folder
+        run: |
+          folder=$(git diff --name-only HEAD^ HEAD | cut -d'/' -f1 | sort -u | grep -E '^[0-9]{4}-' | head -1)
+
+          if [ -z "$folder" ]; then
+            echo "No new LeetCode problem detected."
+          else
+            echo "New problem detected:"
+            echo "$folder"
+          fi
