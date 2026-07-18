@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -38,7 +40,27 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add .
-          git commit -m "Auto generate README files" || exit 0
 
-          git pull --rebase origin main
-          git push origin HEAD:main
+          git diff --cached --quiet && {
+            echo "No changes to commit."
+            exit 0
+          }
+
+          git commit -m "Auto generate README files"
+
+          for i in 1 2 3; do
+            echo "Attempt $i..."
+
+            git pull --rebase origin main
+
+            if git push origin HEAD:main; then
+              echo "Push successful!"
+              exit 0
+            fi
+
+            echo "Push failed. Retrying in 5 seconds..."
+            sleep 5
+          done
+
+          echo "Failed to push after 3 attempts."
+          exit 1
