@@ -1,27 +1,34 @@
-from pathlib import Path
+import os
 
 
 class FileHandler:
 
     @staticmethod
-    def get_cpp_file(problem_folder: str):
-        folder = Path(problem_folder)
+    def read_code(problem_folder):
+        cpp_file = None
 
-        cpp_files = list(folder.glob("*.cpp"))
+        for file in os.listdir(problem_folder):
+            if file.endswith(".cpp"):
+                cpp_file = file
+                break
 
-        if not cpp_files:
-            return None
+        if cpp_file is None:
+            raise FileNotFoundError("No C++ solution found.")
 
-        return cpp_files[0]
-
-
-    @staticmethod
-    def read(path):
-        with open(path, "r", encoding="utf-8") as f:
+        with open(os.path.join(problem_folder, cpp_file), "r") as f:
             return f.read()
 
+    @staticmethod
+    def save_readme(problem_folder, markdown):
+        readme_path = os.path.join(problem_folder, "README.md")
+
+        with open(readme_path, "w", encoding="utf-8") as f:
+            f.write(markdown)
+
+        print(f"✅ README generated at: {readme_path}")
 
     @staticmethod
-    def write(path, content):
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(content)
+    def has_readme(problem_folder):
+        return os.path.exists(
+            os.path.join(problem_folder, "README.md")
+        )

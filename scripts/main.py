@@ -1,34 +1,38 @@
-from pathlib import Path
-import sys
-
-from ai_generator import AIGenerator
+from scanner import RepositoryScanner
 from file_handler import FileHandler
+from ai_generator import AIGenerator
+from generate_root_readme import RootReadmeGenerator
 
 
 def main():
 
-    if len(sys.argv) != 2:
-        print("Usage:")
-        print("python scripts/main.py <problem-folder>")
-        return
-
-    folder = sys.argv[1]
-
-    cpp = FileHandler.get_cpp_file(folder)
-
-    if cpp is None:
-        print("No cpp file found.")
-        return
-
-    code = FileHandler.read(cpp)
-
-    problem_name = Path(folder).name
-
+    scanner = RepositoryScanner()
     ai = AIGenerator()
 
-    markdown = ai.generate(problem_name, code)
+    problems = scanner.scan()
 
-    print(markdown)
+    print(f"\nFound {len(problems)} problems\n")
+
+    for problem in problems:
+
+        if FileHandler.has_readme(problem):
+            print(f"Skipping {problem}")
+            continue
+
+        code = FileHandler.read_code(problem)
+
+        problem_name = problem.split("-", 1)[1].replace("-", " ").title()
+
+        markdown = ai.generate(problem_name, code)
+
+        FileHandler.save_readme(problem, markdown)
+
+        print(f"Generated {problem}")
+
+    # Update the repository's main README
+    RootReadmeGenerator().generate()
+
+    print("\n✅ Root README updated successfully.")
 
 
 if __name__ == "__main__":
