@@ -1,16 +1,15 @@
 # 🚀 LeetCode AI Automation
 
-::: {align="center"}
+<div align="center">
+
 ## 🤖 AI-Powered LeetCode Documentation Automation
 
-Automatically generates professional documentation for every accepted
-LeetCode solution using **Python**, **GitHub Actions**, **Google Gemini
-AI**, and the **LeetCode GraphQL API**.
+Automatically generates professional documentation for every accepted LeetCode solution using **Python**, **GitHub Actions**, **Google Gemini AI**, and the **LeetCode GraphQL API**.
 
-![Problems](https://img.shields.io/badge/Problems-%7B%7BTOTAL_PROBLEMS%7D%7D-blue)
-![Easy](https://img.shields.io/badge/Easy-%7B%7BEASY%7D%7D-success)
-![Medium](https://img.shields.io/badge/Medium-%7B%7BMEDIUM%7D%7D-orange)
-![Hard](https://img.shields.io/badge/Hard-%7B%7BHARD%7D%7D-red)
+![Problems](https://img.shields.io/badge/Problems-{{TOTAL_PROBLEMS}}-blue)
+![Easy](https://img.shields.io/badge/Easy-{{EASY}}-success)
+![Medium](https://img.shields.io/badge/Medium-{{MEDIUM}}-orange)
+![Hard](https://img.shields.io/badge/Hard-{{HARD}}-red)
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 ![GitHub
@@ -18,9 +17,10 @@ Actions](https://img.shields.io/badge/GitHub_Actions-Automated-success?logo=gith
 ![Google
 Gemini](https://img.shields.io/badge/Google-Gemini-blue?logo=google)
 ![License](https://img.shields.io/badge/License-MIT-green)
-:::
 
-------------------------------------------------------------------------
+</div>
+
+---
 
 # 📖 About
 
@@ -40,7 +40,7 @@ the repository dashboard.
 -   ✅ Update repository dashboard
 -   ✅ Commit changes automatically
 
-------------------------------------------------------------------------
+---
 
 # ✨ Features
 
@@ -54,38 +54,38 @@ the repository dashboard.
 -   💾 Metadata caching
 -   🚀 Zero manual documentation
 
-------------------------------------------------------------------------
+---
 
 # 📊 Repository Dashboard
 
 ## 📈 Repository Statistics
 
-  Metric                                       Value
-  -------------------- -----------------------------
-  Total Problems              **{{TOTAL_PROBLEMS}}**
-  Easy                                   🟢 {{EASY}}
-  Medium                               🟠 {{MEDIUM}}
-  Hard                                   🔴 {{HARD}}
-  Average Acceptance     **{{AVERAGE_ACCEPTANCE}}%**
-  Unique Topics                **{{UNIQUE_TOPICS}}**
+| Metric | Value |
+|--------|------:|
+| Total Problems | **{{TOTAL_PROBLEMS}}** |
+| Easy | 🟢 {{EASY}} |
+| Medium | 🟠 {{MEDIUM}} |
+| Hard | 🔴 {{HARD}} |
+| Average Acceptance | **{{AVERAGE_ACCEPTANCE}}%** |
+| Unique Topics | **{{UNIQUE_TOPICS}}** |
 
 ## 📈 Repository Insights
 
-  Metric                        Value
-  ----------------------------- ---------------------------------
-  🏆 Most Solved Topic          **{{MOST_SOLVED_TOPIC}}**
-  📚 Average Topics / Problem   **{{AVERAGE_TOPICS}}**
-  📅 Average Problems / Month   **{{AVERAGE_PER_MONTH}}**
-  🎯 Current Milestone          **{{NEXT_MILESTONE}} Problems**
+| Metric | Value |
+|--------|------:|
+| 🏆 Most Solved Topic | **{{MOST_SOLVED_TOPIC}}** |
+| 📚 Average Topics / Problem | **{{AVERAGE_TOPICS}}** |
+| 📅 Average Problems / Month | **{{AVERAGE_PER_MONTH}}** |
+| 🎯 Current Milestone | **{{NEXT_MILESTONE}} Problems** |
 
 ## 🏅 Achievement Dashboard
 
-  Achievement         Status
-  ------------------- --------------
-  🥉 Bronze (50)      {{BRONZE}}
-  🥈 Silver (100)     {{SILVER}}
-  🥇 Gold (250)       {{GOLD}}
-  💎 Platinum (500)   {{PLATINUM}}
+| Achievement | Status |
+|------------|:------:|
+| 🥉 Bronze (50) | {{BRONZE}} |
+| 🥈 Silver (100) | {{SILVER}} |
+| 🥇 Gold (250) | {{GOLD}} |
+| 💎 Platinum (500) | {{PLATINUM}} |
 
 ## 🎯 Progress
 
@@ -101,7 +101,7 @@ the repository dashboard.
 🔴 Hard    {{HARD_BAR}} {{HARD}}
 ```
 
-------------------------------------------------------------------------
+---
 
 # 📈 Learning Activity
 
@@ -111,48 +111,39 @@ the repository dashboard.
 
 ## 📅 Monthly Activity
 
-  Month     Problems Solved
-  ------- -----------------
-
+| Month | Problems Solved |
+|-------|----------------:|
 {{MONTHLY_ACTIVITY}}
 
 ## 🏷️ Top Topics
 
 {{TOP_TOPICS}}
 
-------------------------------------------------------------------------
+---
 
 # 🩺 Repository Health
 
-  Component                       Status
-  ----------------------- ----------------------
-  Metadata Cache                    ✅
-  AI README Generator               ✅
-  GitHub Actions                    ✅
-  Root README Generator             ✅
-  Last Updated             **{{LAST_UPDATED}}**
+| Component | Status |
+|----------|:------:|
+| Metadata Cache | ✅ |
+| AI README Generator | ✅ |
+| GitHub Actions | ✅ |
+| Root README Generator | ✅ |
+| Last Updated | **{{LAST_UPDATED}}** |
 
-------------------------------------------------------------------------
+---
 
 # 📚 Solved Problems
 
-```{=html}
 <details>
-```
-```{=html}
-<summary>
-```
-`<strong>`{=html}Click to view solved problems`</strong>`{=html}
-```{=html}
-</summary>
-```
+
+<summary><b>📚 Click to view solved problems</b></summary>
+
 {{PROBLEM_TABLE}}
 
-```{=html}
 </details>
-```
 
-------------------------------------------------------------------------
+---
 
 # 🏗️ Project Architecture
 
@@ -174,20 +165,20 @@ GitHub Actions
 Updated Repository
 ```
 
-------------------------------------------------------------------------
+---
 
 # 🛠️ Tech Stack
 
-  Category          Technology
-  ----------------- ------------------
-  Language          Python
-  AI                Google Gemini
-  Automation        GitHub Actions
-  API               LeetCode GraphQL
-  Documentation     Markdown
-  Version Control   Git & GitHub
+| Category | Technology |
+|----------|------------|
+| Language | Python |
+| AI | Google Gemini |
+| Automation | GitHub Actions |
+| API | LeetCode GraphQL |
+| Documentation | Markdown |
+| Version Control | Git & GitHub |
 
-------------------------------------------------------------------------
+---
 
 # 🚀 Automation Workflow
 
@@ -213,19 +204,7 @@ Update Repository README
 Commit Changes
 ```
 
-------------------------------------------------------------------------
-
-# 🎯 Roadmap
-
--   ✅ AI README Generation
--   ✅ Metadata Caching
--   ✅ Repository Dashboard
--   ✅ Achievement Dashboard
--   ✅ Monthly Activity
--   ⬜ Multi-language Support
--   ⬜ Web Dashboard
-
-------------------------------------------------------------------------
+---
 
 # 👨‍💻 Author
 
@@ -241,10 +220,10 @@ Computer Science Engineering Student
 -   Backend Development
 -   Automation
 
-------------------------------------------------------------------------
+---
 
-::: {align="center"}
+<div align="center">
 ⭐ If you found this repository useful, consider giving it a star.
 
 Built with ❤️ using Python • GitHub Actions • Google Gemini AI
-:::
+</div>
