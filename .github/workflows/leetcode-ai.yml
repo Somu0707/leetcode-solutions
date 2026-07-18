@@ -1,4 +1,4 @@
-name: LeetCode AI Automation
+name: LeetCode AI Generator
 
 on:
   push:
@@ -6,28 +6,38 @@ on:
       - main
 
 jobs:
-  detect-problem:
+  generate-readme:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          fetch-depth: 2
+          python-version: "3.13"
 
-      - name: Detect Changed Files
-        id: changed
+      - name: Install Dependencies
         run: |
-          echo "Changed files:"
-          git diff --name-only HEAD^ HEAD
+          pip install -r scripts/requirements.txt
 
-      - name: Detect New Problem Folder
+      - name: Run AI Generator
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          folder=$(git diff --name-only HEAD^ HEAD | cut -d'/' -f1 | sort -u | grep -E '^[0-9]{4}-' | head -1)
+          python scripts/main.py 0504-base-7
 
-          if [ -z "$folder" ]; then
-            echo "No new LeetCode problem detected."
-          else
-            echo "New problem detected:"
-            echo "$folder"
-          fi
+      - name: Commit Changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add .
+
+          git diff --cached --quiet || git commit -m "Auto generate README"
+
+          git push
