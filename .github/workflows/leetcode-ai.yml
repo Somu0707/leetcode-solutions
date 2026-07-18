@@ -5,39 +5,45 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   generate-readme:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
       - name: Install Dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
 
-      - name: Run AI Generator
+      - name: Generate READMEs
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          python scripts/main.py 0504-base-7
+          python scripts/main.py
 
       - name: Commit Changes
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add .
 
-          git diff --cached --quiet || git commit -m "Auto generate README"
+          if git diff --cached --quiet; then
+            echo "No changes detected."
+            exit 0
+          fi
+
+          git commit -m "Auto generate README files"
 
           git push
