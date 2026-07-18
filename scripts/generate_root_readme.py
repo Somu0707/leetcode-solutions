@@ -3,38 +3,42 @@ from scanner import RepositoryScanner
 
 class RootReadmeGenerator:
 
+    def __init__(self):
+        self.scanner = RepositoryScanner()
+
     def generate(self):
 
-        scanner = RepositoryScanner()
-
-        problems = scanner.scan()
+        problems = self.scanner.scan()
 
         total = len(problems)
 
-        markdown = f"""# 🚀 LeetCode Solutions
-
-Automatically maintained using:
-
-- Python
-- GitHub Actions
-- Gemini AI
-- LeetHub
-
----
-
-## Problems Solved
-
-**Total : {total}**
-
----
-
-## Repository
-
-"""
+        table = [
+            "| # | Problem | Documentation |",
+            "|---|---------|---------------|"
+        ]
 
         for problem in problems:
-            markdown += f"- {problem}\n"
 
-        with open("README.md", "w") as f:
-            f.write(markdown)
-            
+            number, name = problem.split("-", 1)
+
+            title = name.replace("-", " ").title()
+
+            table.append(
+                f"| {number} | [{title}](./{problem}/README.md) | ✅ |"
+            )
+
+        with open("templates/README_TEMPLATE.md", "r", encoding="utf-8") as f:
+            readme = f.read()
+
+        readme = readme.replace(
+            "{{TOTAL_PROBLEMS}}",
+            str(total)
+        )
+
+        readme = readme.replace(
+            "{{PROBLEM_TABLE}}",
+            "\n".join(table)
+        )
+
+        with open("README.md", "w", encoding="utf-8") as f:
+            f.write(readme)

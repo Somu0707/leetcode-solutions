@@ -1,83 +1,100 @@
 # LeetCode 504: Base 7
 
 ## Problem Summary
-Given an integer `num`, return its representation as a **base 7** string. The input integer can be positive, negative, or zero, and the solution must handle these sign constraints accurately.
+Given an integer `num`, return its representation as a **base 7** string. The solution must correctly handle positive integers, negative integers, and the edge case of zero.
 
 ---
 
 ## Intuition
-To convert a number from base 10 to any other base (in this case, base 7), we use the standard **successive division method**. By repeatedly dividing the number by 7 and collecting the remainders, we extract the digits of the target base from the least significant digit (rightmost) to the most significant digit (leftmost). Since we generate the digits in reverse order, we must reverse the final string to get the correct representation.
+The core mechanism of positional numeral system conversion is successive division. To convert a base-10 number to base-7, we repeatedly divide the number by 7 and collect the remainders. These remainders represent the digits of the target base from the least significant digit (rightmost) to the most significant digit (leftmost). 
+
+To simplify the mathematical operations and avoid handling negative modulo arithmetic, we can isolate the sign of the input, perform the conversion on the absolute value, and then reapply the negative sign at the end.
 
 ---
 
 ## Approach
-1. **Edge Case Handling**: If the input `num` is `0`, return `"0"` immediately.
-2. **Sign Tracking**: Store whether the number is negative using a boolean flag `neg`. Convert `num` to its absolute value to simplify modulo and division arithmetic.
-3. **Successive Division**:
-   - Loop while `num > 0`.
-   - Compute the remainder `num % 7`, convert it to a character (`char('0' + remainder)`), and append it to the result string `ans`.
-   - Update `num` by dividing it by 7 (`num /= 7`).
-4. **Reverse and Sign Restore**: 
-   - Reverse the accumulated string `ans` because the digits were gathered from right to left.
+1. **Edge Case Handling:** If `num` is `0`, immediately return `"0"`.
+2. **Sign Preservation:** Store whether the input is negative in a boolean flag `neg`, then convert `num` to its absolute value using `abs()`.
+3. **Successive Division Loop:**
+   - Compute `num % 7` to get the current least significant digit.
+   - Convert this digit to a character (`'0' + remainder`) and append it to the result string `ans`.
+   - Update `num` by dividing it by `7` (`num /= 7`).
+   - Repeat until `num` becomes `0`.
+4. **Post-Processing:**
+   - Since digits were gathered from right to left, reverse the string `ans` to restore the correct order (most significant to least significant).
    - If the original number was negative, prepend the `"-"` character to the reversed string.
 5. **Return** the final string.
 
 ---
 
 ## Dry Run
-Let's dry run the algorithm with input `num = -100`:
+Let's dry run the algorithm with `num = -100`:
 
-1. **Sign Check**: `num < 0` is `true`. We set `neg = true` and `num = abs(-100) = 100`.
-2. **Iteration 1**:
-   - `num % 7 = 100 % 7 = 2` $\rightarrow$ `ans = "2"`
-   - `num = 100 / 7 = 14`
-3. **Iteration 2**:
-   - `num % 7 = 14 % 7 = 0` $\rightarrow$ `ans = "20"`
-   - `num = 14 / 7 = 2`
-4. **Iteration 3**:
-   - `num % 7 = 2 % 7 = 2` $\rightarrow$ `ans = "202"`
-   - `num = 2 / 7 = 0` (Loop terminates)
-5. **Reversal**: Reversing `"202"` gives `"202"`.
-6. **Apply Sign**: Since `neg` is `true`, we prepend `"-"` $\rightarrow$ `"-202"`.
+1. **Initialization:**
+   - `num != 0` -> Continue.
+   - `neg = true` (since `-100 < 0`).
+   - `num = abs(-100) = 100`.
+   - `ans = ""`.
 
-**Output**: `"-202"`
+2. **Loop Iterations:**
+   - **Iteration 1:**
+     - `100 % 7 = 2` -> `ans` becomes `"2"`.
+     - `num = 100 / 7 = 14`.
+   - **Iteration 2:**
+     - `14 % 7 = 0` -> `ans` becomes `"20"`.
+     - `num = 14 / 7 = 2`.
+   - **Iteration 3:**
+     - `2 % 7 = 2` -> `ans` becomes `"202"`.
+     - `num = 2 / 7 = 0`.
+   - **Loop terminates** because `num == 0`.
+
+3. **Reversal & Sign Correction:**
+   - Reverse `ans`: `"202"` reversed is `"202"`.
+   - Apply sign: `neg` is `true`, so `ans = "-" + "202" = "-202"`.
+
+**Output:** `"-202"`
 
 ---
 
-## Complexity Analysis
+## Time Complexity
+- **$O(\log_7 |N|)$**: The number of divisions we perform is proportional to the number of digits of $N$ in base 7. Reversing the string of length $L$ takes $O(L)$ time, where $L \approx \log_7 |N|$. Thus, the overall time complexity is logarithmic.
 
-- **Time Complexity:** $\mathcal{O}(\log_7 |N|)$  
-  The number of iterations in the loop is proportional to the number of digits of `num` in base 7, which is $\lfloor\log_7 |N|\rfloor + 1$. Reversing the string also takes linear time relative to its length, making the overall time complexity logarithmic.
-
-- **Space Complexity:** $\mathcal{O}(\log_7 |N|)$  
-  The auxiliary space is used to store the output string, which requires space proportional to the number of digits in the base 7 representation of the input.
+## Space Complexity
+- **$O(\log_7 |N|)$**: Auxiliary space is used to store the output string, which contains at most $\lceil \log_7(|N| + 1) \rceil + 1$ characters. If we ignore the space required for the output, the auxiliary space complexity is **$O(1)$**.
 
 ---
 
 ## Key Learning
-- **Mathematical Base Conversion**: The technique of using `% Base` and `/ Base` is the foundational template for converting any integer to any base representation (Base 2, Base 8, Base 16, etc.).
-- **Boundary Conditions**: Isolating the negative sign early simplifies the mathematical operations inside the loop and prevents negative modulo bugs in C++.
-- **ASCII Offsetting**: Converting a numeric digit `d` (where $0 \le d \le 6$) to its character representation is cleanly done via `char('0' + d)`.
+- **String Prepending vs. Appending + Reversing:** In C++, prepending to a string (`ans = char + ans`) takes $O(L)$ time per insertion due to element shifting, resulting in an $O(L^2)$ total complexity. Appending (`ans += char`) followed by a single standard reverse operation is much more efficient, running in linear $O(L)$ time.
+- **Isolating Sign Logic:** Handling negative signs up front prevents tricky edge cases associated with negative modulo operators in different programming languages.
 
 ---
 
-## C++ Solution
+## C++ Code Solution
 
 ```cpp
 class Solution {
 public:
     string convertToBase7(int num) {
-        if(num == 0) return "0";
+        // Base case: 0 is represented as "0" in any base
+        if (num == 0) return "0";
+        
         bool neg = num < 0;
-        if(neg) num = abs(num);
+        if (neg) num = abs(num);
+        
         string ans = "";
-        while(num > 0){
+        while (num > 0) {
             ans += char('0' + num % 7);
             num /= 7;
         }
+        
+        // Reverse to get the correct order (most to least significant digit)
         reverse(ans.begin(), ans.end());
-        if(neg) 
+        
+        if (neg) {
             ans = "-" + ans;
+        }
+        
         return ans;
     }
 };

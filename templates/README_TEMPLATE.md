@@ -48,8 +48,8 @@ No manual documentation is required.
 
 | Metric | Value |
 |---------|------:|
-| 📚 Total Problems Solved | **4** |
-| 🤖 AI Generated READMEs | **4** |
+| 📚 Total Problems Solved | **{{TOTAL_PROBLEMS}}** |
+| 🤖 AI Generated READMEs | **{{TOTAL_PROBLEMS}}** |
 | ⚡ Automation Status | ✅ Active |
 | 🔄 Last Updated | Automatically by GitHub Actions |
 
@@ -140,12 +140,7 @@ leetcode-solutions/
 
 # 📚 Solved Problems
 
-| # | Problem | Documentation |
-|---|---------|---------------|
-| 0001 | [Two Sum](./0001-two-sum/README.md) | ✅ |
-| 0278 | [First Bad Version](./0278-first-bad-version/README.md) | ✅ |
-| 0504 | [Base 7](./0504-base-7/README.md) | ✅ |
-| 0557 | [Reverse Words In A String Iii](./0557-reverse-words-in-a-string-iii/README.md) | ✅ |
+{{PROBLEM_TABLE}}
 
 ---
 
