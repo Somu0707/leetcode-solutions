@@ -6,9 +6,9 @@
 
 Automatically generates professional documentation for every accepted LeetCode solution using **Python**, **GitHub Actions**, **Google Gemini AI**, and the **LeetCode GraphQL API**.
 
-![Problems](https://img.shields.io/badge/Problems-4-blue)
+![Problems](https://img.shields.io/badge/Problems-5-blue)
 ![Easy](https://img.shields.io/badge/Easy-4-success)
-![Medium](https://img.shields.io/badge/Medium-0-orange)
+![Medium](https://img.shields.io/badge/Medium-1-orange)
 ![Hard](https://img.shields.io/badge/Hard-0-red)
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
@@ -62,20 +62,20 @@ the repository dashboard.
 
 | Metric | Value |
 |--------|------:|
-| Total Problems | **4** |
+| Total Problems | **5** |
 | Easy | 🟢 4 |
-| Medium | 🟠 0 |
+| Medium | 🟠 1 |
 | Hard | 🔴 0 |
-| Average Acceptance | **61.04%** |
+| Average Acceptance | **58.88%** |
 | Unique Topics | **7** |
 
 ## 📈 Repository Insights
 
 | Metric | Value |
 |--------|------:|
-| 🏆 Most Solved Topic | **String** |
+| 🏆 Most Solved Topic | **Array** |
 | 📚 Average Topics / Problem | **2.00** |
-| 📅 Average Problems / Month | **4.00** |
+| 📅 Average Problems / Month | **5.00** |
 | 🎯 Current Milestone | **100 Problems** |
 
 ## 🏅 Achievement Dashboard
@@ -90,14 +90,14 @@ the repository dashboard.
 ## 🎯 Progress
 
 ``` text
-░░░░░░░░░░░░░░░░░░░░ 4 / 100 (4.0%)
+█░░░░░░░░░░░░░░░░░░░ 5 / 100 (5.0%)
 ```
 
 ## 📊 Difficulty Distribution
 
 ``` text
 🟢 Easy    ████████████████████ 4
-🟠 Medium  ░░░░░░░░░░░░░░░░░░░░ 0
+🟠 Medium  █████░░░░░░░░░░░░░░░ 1
 🔴 Hard    ░░░░░░░░░░░░░░░░░░░░ 0
 ```
 
@@ -107,6 +107,7 @@ the repository dashboard.
 
 ## 🆕 Recently Solved
 
+- 🆕 [Koko Eating Bananas](./0875-koko-eating-bananas/README.md)
 - 🆕 [Two Sum](./0001-two-sum/README.md)
 - 🆕 [First Bad Version](./0278-first-bad-version/README.md)
 - 🆕 [Base 7](./0504-base-7/README.md)
@@ -116,14 +117,14 @@ the repository dashboard.
 
 | Month | Problems Solved |
 |-------|----------------:|
-| July 2026 | 4 |
+| July 2026 | 5 |
 
 ## 🏷️ Top Topics
 
+- **Array** : 2
+- **Binary Search** : 2
 - **String** : 2
-- **Array** : 1
 - **Hash Table** : 1
-- **Binary Search** : 1
 - **Interactive** : 1
 
 ---
@@ -136,7 +137,7 @@ the repository dashboard.
 | AI README Generator | ✅ |
 | GitHub Actions | ✅ |
 | Root README Generator | ✅ |
-| Last Updated | **18 Jul 2026 17:58** |
+| Last Updated | **18 Jul 2026 18:03** |
 
 ---
 
@@ -152,6 +153,7 @@ the repository dashboard.
 | 0278 | [First Bad Version](./0278-first-bad-version/README.md) | 🟢 Easy | 47.37% | Binary Search, Interactive | ✅ |
 | 0504 | [Base 7](./0504-base-7/README.md) | 🟢 Easy | 54.89% | Math, String | ✅ |
 | 0557 | [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md) | 🟢 Easy | 84.08% | Two Pointers, String | ✅ |
+| 0875 | [Koko Eating Bananas](./0875-koko-eating-bananas/README.md) | 🟠 Medium | 50.25% | Array, Binary Search | ✅ |
 
 </details>
 
@@ -239,15 +241,3 @@ Computer Science Engineering Student
 
 Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 </div>
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [0875-koko-eating-bananas](https://github.com/Somu0707/leetcode-solutions/tree/master/0875-koko-eating-bananas) |
-## Binary Search
-|  |
-| ------- |
-| [0875-koko-eating-bananas](https://github.com/Somu0707/leetcode-solutions/tree/master/0875-koko-eating-bananas) |
-<!---LeetCode Topics End-->
