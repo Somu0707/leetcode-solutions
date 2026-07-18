@@ -14,7 +14,7 @@
 
 ---
 
-## 📖 About
+# 📖 About
 
 Most LeetCode repositories contain only source code, making them difficult to revisit and understand later.
 
@@ -44,14 +44,58 @@ No manual documentation is required.
 
 ---
 
-# 📊 Repository Statistics
+# 📊 Repository Dashboard
+
+## 📈 Repository Statistics
 
 | Metric | Value |
-|---------|------:|
-| 📚 Total Problems Solved | **4** |
-| 🤖 AI Generated READMEs | **4** |
-| ⚡ Automation Status | ✅ Active |
-| 🔄 Last Updated | Automatically by GitHub Actions |
+|--------|------:|
+| Total Problems | **4** |
+| Easy | 🟢 4 |
+| Medium | 🟠 0 |
+| Hard | 🔴 0 |
+| Average Acceptance | **61.04%** |
+| Unique Topics | **7** |
+
+---
+
+## 🎯 Progress to Next Milestone
+
+```text
+░░░░░░░░░░░░░░░░░░░░ 4 / 100 (4.0%)
+```
+
+**Next Milestone:** **100 Problems**
+
+---
+
+## 🏷️ Top Topics
+
+- **String** : 2
+- **Array** : 1
+- **Hash Table** : 1
+- **Binary Search** : 1
+- **Interactive** : 1
+
+---
+
+## 🆕 Recently Solved
+
+- 🆕 [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md)
+- 🆕 [Base 7](./0504-base-7/README.md)
+- 🆕 [First Bad Version](./0278-first-bad-version/README.md)
+- 🆕 [Two Sum](./0001-two-sum/README.md)
+
+---
+
+## 🟢 Repository Health
+
+| Component | Status |
+|----------|:------:|
+| Metadata Cache | ✅ |
+| AI README Generator | ✅ |
+| GitHub Actions | ✅ |
+| Root README Generator | ✅ |
 
 ---
 
@@ -122,6 +166,10 @@ leetcode-solutions/
 │   ├── scanner.py
 │   ├── file_handler.py
 │   ├── generate_root_readme.py
+│   ├── metadata_handler.py
+│   ├── metadata_service.py
+│   ├── readme_builder.py
+│   ├── template_renderer.py
 │   ├── main.py
 │   └── ...
 │
@@ -140,12 +188,12 @@ leetcode-solutions/
 
 # 📚 Solved Problems
 
-| # | Problem | Documentation |
-|---|---------|---------------|
-| 0001 | [Two Sum](./0001-two-sum/README.md) | ✅ |
-| 0278 | [First Bad Version](./0278-first-bad-version/README.md) | ✅ |
-| 0504 | [Base 7](./0504-base-7/README.md) | ✅ |
-| 0557 | [Reverse Words In A String Iii](./0557-reverse-words-in-a-string-iii/README.md) | ✅ |
+| # | Problem | Difficulty | Acceptance | Topics | README |
+|---:|---------|------------|-----------:|--------|:------:|
+| 0001 | [Two Sum](./0001-two-sum/README.md) | 🟢 Easy | 57.82% | Array, Hash Table | ✅ |
+| 0278 | [First Bad Version](./0278-first-bad-version/README.md) | 🟢 Easy | 47.37% | Binary Search, Interactive | ✅ |
+| 0504 | [Base 7](./0504-base-7/README.md) | 🟢 Easy | 54.89% | Math, String | ✅ |
+| 0557 | [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md) | 🟢 Easy | 84.08% | Two Pointers, String | ✅ |
 
 ---
 
@@ -219,15 +267,17 @@ Push to GitHub
 
 ---
 
-# 🎯 Future Improvements
+# 🎯 Roadmap
 
-- 📈 Easy / Medium / Hard Statistics
-- 📊 Progress Dashboard
-- 🔥 Recently Solved Problems
-- 🏷️ Dynamic GitHub Badges
-- 🤖 AI-generated LinkedIn Posts
-- 📅 Daily Coding Streak Tracker
-- 🌙 Interactive Dashboard
+- ✅ AI README Generation
+- ✅ Metadata Caching
+- ✅ Dynamic Repository Statistics
+- ✅ Progress Dashboard
+- ✅ Top Topics Analytics
+- ✅ Recently Solved Section
+- 🔜 Monthly Activity Dashboard
+- 🔜 Coding Streak Tracker
+- 🔜 Repository Analytics
 
 ---
 
@@ -251,6 +301,6 @@ Computer Science Engineering Student
 
 ### ⭐ If you found this project useful, consider giving it a Star!
 
-Made with ❤️ using Python, Google Gemini AI & GitHub Actions.
+Made with ❤️ using Python • Google Gemini AI • GitHub Actions
 
 </div>

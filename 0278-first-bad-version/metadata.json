@@ -1,0 +1,10 @@
+{
+    "id": "278",
+    "title": "First Bad Version",
+    "difficulty": "Easy",
+    "acceptance": 47.37,
+    "topics": [
+        "Binary Search",
+        "Interactive"
+    ]
+}

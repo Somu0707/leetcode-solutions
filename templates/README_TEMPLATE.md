@@ -14,7 +14,7 @@
 
 ---
 
-## 📖 About
+# 📖 About
 
 Most LeetCode repositories contain only source code, making them difficult to revisit and understand later.
 
@@ -44,14 +44,51 @@ No manual documentation is required.
 
 ---
 
-# 📊 Repository Statistics
+# 📊 Repository Dashboard
+
+## 📈 Repository Statistics
 
 | Metric | Value |
-|---------|------:|
-| 📚 Total Problems Solved | **{{TOTAL_PROBLEMS}}** |
-| 🤖 AI Generated READMEs | **{{TOTAL_PROBLEMS}}** |
-| ⚡ Automation Status | ✅ Active |
-| 🔄 Last Updated | Automatically by GitHub Actions |
+|--------|------:|
+| Total Problems | **{{TOTAL_PROBLEMS}}** |
+| Easy | 🟢 {{EASY}} |
+| Medium | 🟠 {{MEDIUM}} |
+| Hard | 🔴 {{HARD}} |
+| Average Acceptance | **{{AVERAGE_ACCEPTANCE}}%** |
+| Unique Topics | **{{UNIQUE_TOPICS}}** |
+
+---
+
+## 🎯 Progress to Next Milestone
+
+```text
+{{PROGRESS_BAR}} {{TOTAL_PROBLEMS}} / {{NEXT_MILESTONE}} ({{PROGRESS_PERCENTAGE}}%)
+```
+
+**Next Milestone:** **{{NEXT_MILESTONE}} Problems**
+
+---
+
+## 🏷️ Top Topics
+
+{{TOP_TOPICS}}
+
+---
+
+## 🆕 Recently Solved
+
+{{RECENT_PROBLEMS}}
+
+---
+
+## 🟢 Repository Health
+
+| Component | Status |
+|----------|:------:|
+| Metadata Cache | ✅ |
+| AI README Generator | ✅ |
+| GitHub Actions | ✅ |
+| Root README Generator | ✅ |
 
 ---
 
@@ -122,6 +159,10 @@ leetcode-solutions/
 │   ├── scanner.py
 │   ├── file_handler.py
 │   ├── generate_root_readme.py
+│   ├── metadata_handler.py
+│   ├── metadata_service.py
+│   ├── readme_builder.py
+│   ├── template_renderer.py
 │   ├── main.py
 │   └── ...
 │
@@ -214,15 +255,17 @@ Push to GitHub
 
 ---
 
-# 🎯 Future Improvements
+# 🎯 Roadmap
 
-- 📈 Easy / Medium / Hard Statistics
-- 📊 Progress Dashboard
-- 🔥 Recently Solved Problems
-- 🏷️ Dynamic GitHub Badges
-- 🤖 AI-generated LinkedIn Posts
-- 📅 Daily Coding Streak Tracker
-- 🌙 Interactive Dashboard
+- ✅ AI README Generation
+- ✅ Metadata Caching
+- ✅ Dynamic Repository Statistics
+- ✅ Progress Dashboard
+- ✅ Top Topics Analytics
+- ✅ Recently Solved Section
+- 🔜 Monthly Activity Dashboard
+- 🔜 Coding Streak Tracker
+- 🔜 Repository Analytics
 
 ---
 
@@ -246,6 +289,6 @@ Computer Science Engineering Student
 
 ### ⭐ If you found this project useful, consider giving it a Star!
 
-Made with ❤️ using Python, Google Gemini AI & GitHub Actions.
+Made with ❤️ using Python • Google Gemini AI • GitHub Actions
 
 </div>
