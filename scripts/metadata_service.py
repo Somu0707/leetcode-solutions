@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 
 class MetadataService:
@@ -54,5 +55,6 @@ class MetadataService:
             "topics": [
                 tag["name"]
                 for tag in question["topicTags"]
-            ]
+            ],
+            "solved_at": datetime.now().isoformat(timespec="seconds")
         }

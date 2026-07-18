@@ -1,294 +1,250 @@
 # 🚀 LeetCode AI Automation
 
-<div align="center">
+::: {align="center"}
+## 🤖 AI-Powered LeetCode Documentation Automation
 
-### 🤖 Automatically generate professional AI-powered documentation for every accepted LeetCode solution.
+Automatically generates professional documentation for every accepted
+LeetCode solution using **Python**, **GitHub Actions**, **Google Gemini
+AI**, and the **LeetCode GraphQL API**.
 
-![Python](https://img.shields.io/badge/Python-3.13-blue?style=for-the-badge&logo=python)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Automated-success?style=for-the-badge&logo=githubactions)
-![Google Gemini](https://img.shields.io/badge/Google-Gemini-blue?style=for-the-badge&logo=google)
-![LeetCode](https://img.shields.io/badge/LeetCode-Solutions-orange?style=for-the-badge&logo=leetcode)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Problems](https://img.shields.io/badge/Problems-%7B%7BTOTAL_PROBLEMS%7D%7D-blue)
+![Easy](https://img.shields.io/badge/Easy-%7B%7BEASY%7D%7D-success)
+![Medium](https://img.shields.io/badge/Medium-%7B%7BMEDIUM%7D%7D-orange)
+![Hard](https://img.shields.io/badge/Hard-%7B%7BHARD%7D%7D-red)
 
-</div>
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![GitHub
+Actions](https://img.shields.io/badge/GitHub_Actions-Automated-success?logo=githubactions)
+![Google
+Gemini](https://img.shields.io/badge/Google-Gemini-blue?logo=google)
+![License](https://img.shields.io/badge/License-MIT-green)
+:::
 
----
+------------------------------------------------------------------------
 
 # 📖 About
 
-Most LeetCode repositories contain only source code, making them difficult to revisit and understand later.
+Most LeetCode repositories only contain source code, making it difficult
+to revisit solutions later.
 
-This project solves that problem by automatically generating a **well-structured AI-powered README** for every accepted LeetCode solution using **Google Gemini AI**.
+This repository automates the entire documentation workflow. Every
+accepted solution is detected, analyzed with **Google Gemini AI**,
+documented with a professional README, and reflected automatically in
+the repository dashboard.
 
-Every time a new problem is pushed to GitHub, the workflow automatically:
+**Automation Pipeline**
 
-- Detects newly added problems
-- Generates an AI explanation
-- Creates a professional README
-- Updates the repository homepage
-- Commits and pushes the changes
+-   ✅ Detect newly added solutions
+-   ✅ Fetch LeetCode metadata
+-   ✅ Generate AI-powered README
+-   ✅ Update repository dashboard
+-   ✅ Commit changes automatically
 
-No manual documentation is required.
-
----
+------------------------------------------------------------------------
 
 # ✨ Features
 
-- 🤖 AI-generated explanation for every LeetCode problem
-- ⚡ Fully automated using GitHub Actions
-- 📁 Organized folder structure
-- 📚 Dynamic repository homepage
-- 🔄 Automatically skips existing README files
-- 🚀 Zero manual documentation effort
-- 💻 Clean and modular Python architecture
+-   🤖 AI-generated README for every problem
+-   ⚡ Fully automated GitHub Actions workflow
+-   📊 Dynamic repository dashboard
+-   🏅 Achievement dashboard
+-   📈 Monthly activity tracking
+-   📚 Recently solved section
+-   🏷️ Topic analytics
+-   💾 Metadata caching
+-   🚀 Zero manual documentation
 
----
+------------------------------------------------------------------------
 
 # 📊 Repository Dashboard
 
 ## 📈 Repository Statistics
 
-| Metric | Value |
-|--------|------:|
-| Total Problems | **{{TOTAL_PROBLEMS}}** |
-| Easy | 🟢 {{EASY}} |
-| Medium | 🟠 {{MEDIUM}} |
-| Hard | 🔴 {{HARD}} |
-| Average Acceptance | **{{AVERAGE_ACCEPTANCE}}%** |
-| Unique Topics | **{{UNIQUE_TOPICS}}** |
+  Metric                                       Value
+  -------------------- -----------------------------
+  Total Problems              **{{TOTAL_PROBLEMS}}**
+  Easy                                   🟢 {{EASY}}
+  Medium                               🟠 {{MEDIUM}}
+  Hard                                   🔴 {{HARD}}
+  Average Acceptance     **{{AVERAGE_ACCEPTANCE}}%**
+  Unique Topics                **{{UNIQUE_TOPICS}}**
 
----
+## 📈 Repository Insights
 
-## 🎯 Progress to Next Milestone
+  Metric                        Value
+  ----------------------------- ---------------------------------
+  🏆 Most Solved Topic          **{{MOST_SOLVED_TOPIC}}**
+  📚 Average Topics / Problem   **{{AVERAGE_TOPICS}}**
+  📅 Average Problems / Month   **{{AVERAGE_PER_MONTH}}**
+  🎯 Current Milestone          **{{NEXT_MILESTONE}} Problems**
 
-```text
+## 🏅 Achievement Dashboard
+
+  Achievement         Status
+  ------------------- --------------
+  🥉 Bronze (50)      {{BRONZE}}
+  🥈 Silver (100)     {{SILVER}}
+  🥇 Gold (250)       {{GOLD}}
+  💎 Platinum (500)   {{PLATINUM}}
+
+## 🎯 Progress
+
+``` text
 {{PROGRESS_BAR}} {{TOTAL_PROBLEMS}} / {{NEXT_MILESTONE}} ({{PROGRESS_PERCENTAGE}}%)
 ```
 
-**Next Milestone:** **{{NEXT_MILESTONE}} Problems**
+## 📊 Difficulty Distribution
 
----
+``` text
+🟢 Easy    {{EASY_BAR}} {{EASY}}
+🟠 Medium  {{MEDIUM_BAR}} {{MEDIUM}}
+🔴 Hard    {{HARD_BAR}} {{HARD}}
+```
 
-## 🏷️ Top Topics
+------------------------------------------------------------------------
 
-{{TOP_TOPICS}}
-
----
+# 📈 Learning Activity
 
 ## 🆕 Recently Solved
 
 {{RECENT_PROBLEMS}}
 
----
+## 📅 Monthly Activity
 
-## 🟢 Repository Health
+  Month     Problems Solved
+  ------- -----------------
 
-| Component | Status |
-|----------|:------:|
-| Metadata Cache | ✅ |
-| AI README Generator | ✅ |
-| GitHub Actions | ✅ |
-| Root README Generator | ✅ |
+{{MONTHLY_ACTIVITY}}
 
----
+## 🏷️ Top Topics
 
-# 🏗️ Project Architecture
+{{TOP_TOPICS}}
 
-```text
-                 LeetCode
-                     │
-                     ▼
-               Accepted Solution
-                     │
-                     ▼
-               LeetHub Extension
-                     │
-                     ▼
-             GitHub Repository
-                     │
-                     ▼
-             GitHub Actions CI
-                     │
-                     ▼
-            Repository Scanner
-                     │
-         ┌───────────┴───────────┐
-         │                       │
-         ▼                       ▼
- README Exists?               No README
-         │                       │
-      Skip Folder               ▼
-                           Google Gemini AI
-                                 │
-                                 ▼
-                       Generate README.md
-                                 │
-                                 ▼
-                     Update Repository README
-                                 │
-                                 ▼
-                       Commit & Push Changes
-```
+------------------------------------------------------------------------
 
----
+# 🩺 Repository Health
 
-# 🛠️ Tech Stack
+  Component                       Status
+  ----------------------- ----------------------
+  Metadata Cache                    ✅
+  AI README Generator               ✅
+  GitHub Actions                    ✅
+  Root README Generator             ✅
+  Last Updated             **{{LAST_UPDATED}}**
 
-| Technology | Purpose |
-|------------|---------|
-| Python | Automation Scripts |
-| Google Gemini API | AI README Generation |
-| GitHub Actions | CI/CD Automation |
-| Git | Version Control |
-| Markdown | Documentation |
-| LeetHub | Automatic Solution Upload |
-
----
-
-# 📂 Repository Structure
-
-```text
-leetcode-solutions/
-│
-├── .github/
-│   └── workflows/
-│       └── leetcode-ai.yml
-│
-├── scripts/
-│   ├── ai_generator.py
-│   ├── scanner.py
-│   ├── file_handler.py
-│   ├── generate_root_readme.py
-│   ├── metadata_handler.py
-│   ├── metadata_service.py
-│   ├── readme_builder.py
-│   ├── template_renderer.py
-│   ├── main.py
-│   └── ...
-│
-├── templates/
-│   └── README_TEMPLATE.md
-│
-├── 0001-two-sum/
-├── 0278-first-bad-version/
-├── 0504-base-7/
-├── 0557-reverse-words-in-a-string-iii/
-│
-└── README.md
-```
-
----
+------------------------------------------------------------------------
 
 # 📚 Solved Problems
 
+```{=html}
+<details>
+```
+```{=html}
+<summary>
+```
+`<strong>`{=html}Click to view solved problems`</strong>`{=html}
+```{=html}
+</summary>
+```
 {{PROBLEM_TABLE}}
 
----
-
-# 🚀 Getting Started
-
-## Clone Repository
-
-```bash
-git clone https://github.com/Somu0707/leetcode-solutions.git
-
-cd leetcode-solutions
+```{=html}
+</details>
 ```
 
----
+------------------------------------------------------------------------
 
-## Install Dependencies
+# 🏗️ Project Architecture
 
-```bash
-pip install -r scripts/requirements.txt
-```
-
----
-
-## Configure Environment
-
-Create a `.env` file in the project root.
-
-```env
-GEMINI_API_KEY=YOUR_API_KEY
-```
-
----
-
-## Run Locally
-
-```bash
-python scripts/main.py
-```
-
----
-
-# 🔄 Automation Workflow
-
-```text
+``` text
 LeetCode
+    │
+Accepted Solution
+    │
+LeetHub
+    │
+GitHub Repository
+    │
+GitHub Actions
+    │
+├── Metadata Generator
+├── Gemini AI
+└── Root README Generator
+    │
+Updated Repository
+```
+
+------------------------------------------------------------------------
+
+# 🛠️ Tech Stack
+
+  Category          Technology
+  ----------------- ------------------
+  Language          Python
+  AI                Google Gemini
+  Automation        GitHub Actions
+  API               LeetCode GraphQL
+  Documentation     Markdown
+  Version Control   Git & GitHub
+
+------------------------------------------------------------------------
+
+# 🚀 Automation Workflow
+
+``` text
+Solve Problem
       │
       ▼
 LeetHub Push
       │
       ▼
-GitHub Actions Trigger
+GitHub Actions
       │
       ▼
-Repository Scanner
+Generate Metadata
       │
       ▼
-Gemini AI
+Generate AI README
       │
       ▼
-Generate README
-      │
-      ▼
-Update Root README
+Update Repository README
       │
       ▼
 Commit Changes
-      │
-      ▼
-Push to GitHub
 ```
 
----
+------------------------------------------------------------------------
 
 # 🎯 Roadmap
 
-- ✅ AI README Generation
-- ✅ Metadata Caching
-- ✅ Dynamic Repository Statistics
-- ✅ Progress Dashboard
-- ✅ Top Topics Analytics
-- ✅ Recently Solved Section
-- 🔜 Monthly Activity Dashboard
-- 🔜 Coding Streak Tracker
-- 🔜 Repository Analytics
+-   ✅ AI README Generation
+-   ✅ Metadata Caching
+-   ✅ Repository Dashboard
+-   ✅ Achievement Dashboard
+-   ✅ Monthly Activity
+-   ⬜ Multi-language Support
+-   ⬜ Web Dashboard
 
----
+------------------------------------------------------------------------
 
 # 👨‍💻 Author
 
-## Soma Sekhara Chari Mulugu
+**Soma Sekhara Chari Mulugu**
 
 Computer Science Engineering Student
 
-### Interests
+**Interests**
 
-- Data Structures & Algorithms
-- Artificial Intelligence
-- Cloud Computing
-- Backend Development
-- Automation
+-   Data Structures & Algorithms
+-   Artificial Intelligence
+-   Cloud Computing
+-   Backend Development
+-   Automation
 
----
+------------------------------------------------------------------------
 
-<div align="center">
+::: {align="center"}
+⭐ If you found this repository useful, consider giving it a star.
 
-### ⭐ If you found this project useful, consider giving it a Star!
-
-Made with ❤️ using Python • Google Gemini AI • GitHub Actions
-
-</div>
+Built with ❤️ using Python • GitHub Actions • Google Gemini AI
+:::

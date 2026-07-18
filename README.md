@@ -59,6 +59,17 @@ No manual documentation is required.
 
 ---
 
+## 📈 Repository Insights
+
+| Metric | Value |
+|--------|-------|
+| 🏆 Most Solved Topic | **String** |
+| 📚 Average Topics per Problem | **2.00** |
+| 📅 Average Problems per Month | **4.00** |
+| 🎯 Current Milestone | **100 Problems** |
+
+---
+
 ## 🎯 Progress to Next Milestone
 
 ```text
@@ -66,6 +77,18 @@ No manual documentation is required.
 ```
 
 **Next Milestone:** **100 Problems**
+
+---
+
+## 📊 Difficulty Distribution
+
+```text
+🟢 Easy    ████████████████████ 4
+
+🟠 Medium  ░░░░░░░░░░░░░░░░░░░░ 0
+
+🔴 Hard    ░░░░░░░░░░░░░░░░░░░░ 0
+```
 
 ---
 
@@ -81,10 +104,18 @@ No manual documentation is required.
 
 ## 🆕 Recently Solved
 
-- 🆕 [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md)
-- 🆕 [Base 7](./0504-base-7/README.md)
-- 🆕 [First Bad Version](./0278-first-bad-version/README.md)
 - 🆕 [Two Sum](./0001-two-sum/README.md)
+- 🆕 [First Bad Version](./0278-first-bad-version/README.md)
+- 🆕 [Base 7](./0504-base-7/README.md)
+- 🆕 [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md)
+
+---
+
+## 📅 Monthly Activity
+
+| Month | Problems Solved |
+|--------|----------------:|
+| July 2026 | 4 |
 
 ---
 
@@ -96,6 +127,21 @@ No manual documentation is required.
 | AI README Generator | ✅ |
 | GitHub Actions | ✅ |
 | Root README Generator | ✅ |
+
+---
+
+## 🏅 Achievement Dashboard
+
+| Achievement | Status |
+|-------------|--------|
+| 🥉 Bronze Solver (50 Problems) | ⏳ |
+| 🥈 Silver Solver (100 Problems) | ⏳ |
+| 🥇 Gold Solver (250 Problems) | ⏳ |
+| 💎 Platinum Solver (500 Problems) | ⏳ |
+
+### 🎯 Current Goal
+
+**4 / 100 Problems**
 
 ---
 
