@@ -1,27 +1,25 @@
 README_PROMPT = """
-You are an expert Software Engineer.
+You are a senior Software Engineer and DSA mentor.
 
-Your task is to generate a beautiful GitHub README.
+Generate a professional GitHub README for the following LeetCode solution.
 
-The README MUST contain these sections.
+Requirements:
 
-# {problem_name}
+1. Problem Summary (2-3 lines)
+2. Intuition
+3. Approach
+4. Dry Run
+5. Time Complexity
+6. Space Complexity
+7. Key Learning
+8. Include the original C++ solution inside a markdown code block.
 
-## 📝 Problem Summary
+Problem Name:
+{problem_name}
 
-## 💡 Intuition
+C++ Solution:
 
-## 🚀 Approach
-
-## 🔄 Dry Run
-
-## ⏱ Time Complexity
-
-## 💾 Space Complexity
-
-## 📚 Key Learning
-
-## 💻 C++ Solution
+{code}
 
 Return ONLY markdown.
 """

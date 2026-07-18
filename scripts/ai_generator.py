@@ -1,19 +1,25 @@
+from google import genai
+
+from config import GEMINI_API_KEY, MODEL_NAME
 from prompt_template import README_PROMPT
 
 
 class AIGenerator:
 
-    @staticmethod
-    def generate(problem_name, code):
+    def __init__(self):
+        self.client = genai.Client(api_key=GEMINI_API_KEY)
+
+    def generate(self, problem_name, code):
+        # print("MODEL =", MODEL_NAME)
 
         prompt = README_PROMPT.format(
-            problem_name=problem_name
+            problem_name=problem_name,
+            code=code
         )
 
-        print(prompt)
+        response = self.client.models.generate_content(
+            model=MODEL_NAME,
+            contents=prompt
+        )
 
-        print("\n\n========== CODE ==========\n")
-
-        print(code[:300])
-
-        return "AI generation will happen here."
+        return response.text

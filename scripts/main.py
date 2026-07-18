@@ -1,16 +1,15 @@
+from pathlib import Path
 import sys
 
-from pathlib import Path
-
-from file_handler import FileHandler
 from ai_generator import AIGenerator
+from file_handler import FileHandler
 
 
 def main():
 
     if len(sys.argv) != 2:
         print("Usage:")
-        print("python main.py <problem-folder>")
+        print("python scripts/main.py <problem-folder>")
         return
 
     folder = sys.argv[1]
@@ -25,7 +24,11 @@ def main():
 
     problem_name = Path(folder).name
 
-    AIGenerator.generate(problem_name, code)
+    ai = AIGenerator()
+
+    markdown = ai.generate(problem_name, code)
+
+    print(markdown)
 
 
 if __name__ == "__main__":
