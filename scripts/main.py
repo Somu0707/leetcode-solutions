@@ -25,11 +25,15 @@ def main():
 
             print(f"Fetching metadata for {problem}")
 
-            metadata = MetadataService.get_metadata(slug)
-
-            MetadataHandler.save(problem, metadata)
+            MetadataHandler.save(
+                problem,
+                MetadataService.get_metadata(slug)
+            )
 
             print("✅ Metadata saved")
+
+        # Always load metadata
+        metadata = MetadataHandler.load(problem)
 
         # Skip README if already present
         if FileHandler.has_readme(problem):
@@ -38,9 +42,7 @@ def main():
 
         code = FileHandler.read_code(problem)
 
-        problem_name = MetadataHandler.load(problem)["title"]
-
-        markdown = ai.generate(problem_name, code)
+        markdown = ai.generate(metadata, code)
 
         FileHandler.save_readme(problem, markdown)
 

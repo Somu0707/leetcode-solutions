@@ -9,11 +9,12 @@ class AIGenerator:
     def __init__(self):
         self.client = genai.Client(api_key=GEMINI_API_KEY)
 
-    def generate(self, problem_name, code):
-        # print("MODEL =", MODEL_NAME)
+    def generate(self, metadata, code):
 
         prompt = README_PROMPT.format(
-            problem_name=problem_name,
+            problem_name=metadata["title"],
+            difficulty=metadata["difficulty"],
+            problem_content=metadata["content"],
             code=code
         )
 

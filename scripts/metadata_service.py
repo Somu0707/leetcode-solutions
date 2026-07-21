@@ -11,16 +11,19 @@ class MetadataService:
 
         query = """
         query getQuestionDetail($titleSlug: String!) {
-          question(titleSlug: $titleSlug) {
-            questionFrontendId
-            title
-            difficulty
-            acRate
-            topicTags {
-              name
-            }
-          }
-        }
+  question(titleSlug: $titleSlug) {
+    questionFrontendId
+    title
+    difficulty
+    acRate
+    content
+    exampleTestcases
+    hints
+    topicTags {
+      name
+    }
+  }
+}
         """
 
         payload = {
@@ -48,13 +51,16 @@ class MetadataService:
         question = response.json()["data"]["question"]
 
         return {
-            "id": question["questionFrontendId"],
-            "title": question["title"],
-            "difficulty": question["difficulty"],
-            "acceptance": round(question["acRate"], 2),
-            "topics": [
-                tag["name"]
-                for tag in question["topicTags"]
-            ],
-            "solved_at": datetime.now().isoformat(timespec="seconds")
-        }
+    "id": question["questionFrontendId"],
+    "title": question["title"],
+    "difficulty": question["difficulty"],
+    "acceptance": round(question["acRate"], 2),
+    "content": question["content"],
+    "example_testcases": question["exampleTestcases"],
+    "hints": question["hints"],
+    "topics": [
+        tag["name"]
+        for tag in question["topicTags"]
+    ],
+    "solved_at": datetime.now().isoformat(timespec="seconds")
+}
