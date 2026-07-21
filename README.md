@@ -107,11 +107,11 @@ the repository dashboard.
 
 ## 🆕 Recently Solved
 
-- 🆕 [Two Sum](./0001-two-sum/README.md)
 - 🆕 [Koko Eating Bananas](./0875-koko-eating-bananas/README.md)
-- 🆕 [First Bad Version](./0278-first-bad-version/README.md)
-- 🆕 [Base 7](./0504-base-7/README.md)
 - 🆕 [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md)
+- 🆕 [Base 7](./0504-base-7/README.md)
+- 🆕 [First Bad Version](./0278-first-bad-version/README.md)
+- 🆕 [Two Sum](./0001-two-sum/README.md)
 
 ## 📅 Monthly Activity
 
@@ -137,7 +137,7 @@ the repository dashboard.
 | AI README Generator | ✅ |
 | GitHub Actions | ✅ |
 | Root README Generator | ✅ |
-| Last Updated | **21 Jul 2026 08:30** |
+| Last Updated | **21 Jul 2026 21:11** |
 
 ---
 
@@ -150,10 +150,10 @@ the repository dashboard.
 | # | Problem | Difficulty | Acceptance | Topics | README |
 |---:|---------|------------|-----------:|--------|:------:|
 | 0001 | [Two Sum](./0001-two-sum/README.md) | 🟢 Easy | 57.84% | Array, Hash Table | ✅ |
-| 0278 | [First Bad Version](./0278-first-bad-version/README.md) | 🟢 Easy | 47.37% | Binary Search, Interactive | ✅ |
-| 0504 | [Base 7](./0504-base-7/README.md) | 🟢 Easy | 54.89% | Math, String | ✅ |
+| 0278 | [First Bad Version](./0278-first-bad-version/README.md) | 🟢 Easy | 47.38% | Binary Search, Interactive | ✅ |
+| 0504 | [Base 7](./0504-base-7/README.md) | 🟢 Easy | 54.90% | Math, String | ✅ |
 | 0557 | [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md) | 🟢 Easy | 84.08% | Two Pointers, String | ✅ |
-| 0875 | [Koko Eating Bananas](./0875-koko-eating-bananas/README.md) | 🟠 Medium | 50.25% | Array, Binary Search | ✅ |
+| 0875 | [Koko Eating Bananas](./0875-koko-eating-bananas/README.md) | 🟠 Medium | 50.27% | Array, Binary Search | ✅ |
 
 </details>
 

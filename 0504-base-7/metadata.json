@@ -2,10 +2,13 @@
     "id": "504",
     "title": "Base 7",
     "difficulty": "Easy",
-    "acceptance": 54.89,
+    "acceptance": 54.9,
+    "content": "<p>Given an integer <code>num</code>, return <em>a string of its <strong>base 7</strong> representation</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre><strong>Input:</strong> num = 100\n<strong>Output:</strong> \"202\"\n</pre><p><strong class=\"example\">Example 2:</strong></p>\n<pre><strong>Input:</strong> num = -7\n<strong>Output:</strong> \"-10\"\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>-10<sup>7</sup> &lt;= num &lt;= 10<sup>7</sup></code></li>\n</ul>\n",
+    "example_testcases": "100\n-7",
+    "hints": [],
     "topics": [
         "Math",
         "String"
     ],
-    "solved_at": "2026-07-18T15:12:26"
+    "solved_at": "2026-07-21T15:45:03"
 }

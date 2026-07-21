@@ -3,9 +3,12 @@
     "title": "Reverse Words in a String III",
     "difficulty": "Easy",
     "acceptance": 84.08,
+    "content": "<p>Given a string <code>s</code>, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;Let&#39;s take LeetCode contest&quot;\n<strong>Output:</strong> &quot;s&#39;teL ekat edoCteeL tsetnoc&quot;\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;Mr Ding&quot;\n<strong>Output:</strong> &quot;rM gniD&quot;\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>\n\t<li><code>s</code> contains printable <strong>ASCII</strong> characters.</li>\n\t<li><code>s</code> does not contain any leading or trailing spaces.</li>\n\t<li>There is <strong>at least one</strong> word in <code>s</code>.</li>\n\t<li>All the words in <code>s</code> are separated by a single space.</li>\n</ul>\n",
+    "example_testcases": "\"Let's take LeetCode contest\"\n\"Mr Ding\"",
+    "hints": [],
     "topics": [
         "Two Pointers",
         "String"
     ],
-    "solved_at": "2026-07-18T15:12:26"
+    "solved_at": "2026-07-21T15:45:20"
 }

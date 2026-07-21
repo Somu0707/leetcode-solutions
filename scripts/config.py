@@ -8,4 +8,4 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY not found.")
 
-MODEL_NAME = "gemini-3.5-flash"
+MODEL_NAME = "models/gemini-3.6-flash"
