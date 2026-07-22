@@ -248,6 +248,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
+| [0021-merge-two-sorted-lists](https://github.com/Somu0707/leetcode-solutions/tree/master/0021-merge-two-sorted-lists) |
 | [0876-middle-of-the-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0876-middle-of-the-linked-list) |
 ## Two Pointers
 |  |
@@ -261,4 +262,5 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
+| [0021-merge-two-sorted-lists](https://github.com/Somu0707/leetcode-solutions/tree/master/0021-merge-two-sorted-lists) |
 <!---LeetCode Topics End-->
