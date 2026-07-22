@@ -1,120 +1,128 @@
 ## 💭 Thought Process
 
-To find the minimum eating speed $k$, let's first consider the simplest brute-force approach:
+To solve this problem, a good starting point is to think about how we can test different eating speeds.
 
-1. **Brute Force Idea:**
-   We can start testing eating speeds starting from $k = 1$ and incrementally check speeds $k = 2, 3, 4, \dots$. For each speed, we calculate the total hours Koko needs to finish all piles. The first speed $k$ that allows Koko to eat all bananas within $h$ hours would be our answer.
+1. **Brute Force Approach**:
+   We could test eating speeds starting from $k = 1$ and incrementally check $k = 2, 3, 4, \dots$ up to the maximum pile size. For each speed $k$, we iterate through all piles to calculate the total time required. As soon as we find a speed $k$ that allows Koko to finish within $h$ hours, we return $k$.
 
-2. **Why Brute Force Fails:**
-   The maximum possible pile size can be up to $10^9$. If the optimal speed is close to $10^9$ and there are $10^4$ piles, testing every speed sequentially would take $O(N \times \max(piles))$ operations, leading to a Time Limit Exceeded (TLE) verdict.
+2. **Why Brute Force is Inefficient**:
+   The maximum pile size can be up to $10^9$. In the worst case, linear search would require checking up to $10^9$ speeds. For each speed, we iterate through $N$ piles ($N \le 10^4$), leading to approximately $O(N \times \text{max}(piles))$ operations. This will trigger a **Time Limit Exceeded (TLE)** error.
 
-3. **Key Observation:**
-   Notice how the total time required changes as the speed $k$ changes:
-   - If a speed $k$ is **too slow** (takes more than $h$ hours), any speed smaller than $k$ will also be too slow.
-   - If a speed $k$ is **fast enough** (takes $\le h$ hours), any speed greater than $k$ will also be fast enough.
+3. **Key Observation**:
+   Notice the relationship between eating speed $k$ and the total time required:
+   - Increasing the speed $k$ **decreases** (or keeps equal) the total hours needed.
+   - Decreasing the speed $k$ **increases** (or keeps equal) the total hours needed.
 
-   This **monotonic behavior** (a clear transition from *invalid* speeds to *valid* speeds) allows us to eliminate half of the search space at each step using **Binary Search on Answer**.
+   This **monotonic behavior** (a non-increasing function) means the search space of valid speeds is sorted naturally. If a speed $k$ is fast enough, any speed greater than $k$ is also fast enough. If $k$ is too slow, any speed less than $k$ is definitely too slow. This property makes the problem a classic candidate for **Binary Search on Answer**.
 
 ---
 
 ## 💡 Intuition
 
-Instead of searching within the input array, we apply **Binary Search over a range of potential values** (the eating speeds):
+Instead of searching through elements of an array, we perform **Binary Search over a range of possible answers**:
+- **Minimum possible speed (`low`)**: $1$ (eating at least 1 banana per hour).
+- **Maximum possible speed (`high`)**: $\text{max}(piles)$ (eating the largest pile in 1 hour; eating faster than this provides no extra benefit because Koko cannot eat from multiple piles in the same hour).
 
-- **Minimum possible speed (`low`):** `1` banana per hour (Koko must eat at least 1 banana per hour).
-- **Maximum possible speed (`high`):** $\max(piles)$ bananas per hour (at this speed, Koko eats any pile in at most 1 hour, taking $N$ hours in total, which is always $\le h$).
-
-By repeatedly picking the middle speed `mid`, we test if Koko can finish within $h$ hours:
-- If `mid` works, we record it as a potential candidate and try to find an even smaller speed by searching in the left half.
-- If `mid` does not work, we must increase the speed by searching in the right half.
+By repeatedly bisecting this range $[low, high]$:
+- If a candidate speed `mid` enables Koko to finish within $h$ hours, then `mid` is a valid speed. However, a smaller valid speed might exist, so we narrow our search to the left half (`high = mid - 1`).
+- If `mid` takes more than $h$ hours, it is too slow, so we must increase the speed and search the right half (`low = mid + 1`).
 
 ---
 
 ## 🚀 Approach
 
-1. **Find the Search Range:**
-   - Set `low = 1`.
-   - Set `high = max(piles)`.
+1. **Identify the Range**:
+   - Set `low = 1` as the lower boundary of speed.
+   - Find the maximum value in `piles` and set `high = max(piles)` as the upper boundary.
 
-2. **Binary Search for Minimum Speed:**
-   - Compute `mid = low + (high - low) / 2`.
-   - Calculate the total hours required to finish all piles at speed `mid`.
-   - For a pile with $P$ bananas, hours taken is $\lceil P / mid \rceil$, which can be computed using integer division as `(P + mid - 1) / mid`.
+2. **Binary Search Loop**:
+   - Calculate candidate speed `mid = low + (high - low) / 2`.
+   - Compute total hours required to consume all piles at speed `mid`.
 
-3. **Adjust Search Boundaries:**
-   - **If total hours $\le h$:** Speed `mid` is feasible. Try to find a smaller valid speed by moving the upper bound (`high = mid - 1`).
-   - **If total hours $> h$:** Speed `mid` is too slow. Increase the lower bound (`low = mid + 1`).
+3. **Helper Function / Hours Calculation**:
+   - For a pile with $P$ bananas eaten at speed $k$, time taken is $\lceil P / k \rceil$.
+   - In integer arithmetic, $\lceil P / k \rceil$ is computed as `(P + k - 1) / k`.
 
-4. **Return Answer:**
-   - When `low` exceeds `high`, `low` will hold the minimum required speed.
+4. **Adjust Range**:
+   - If total hours $\le h$: Speed `mid` is feasible. We attempt to find a smaller valid speed by moving `high = mid - 1`.
+   - If total hours $> h$: Speed `mid` is too slow. We must increase speed by moving `low = mid + 1`.
+
+5. **Result**:
+   - When the binary search loop completes, `low` holds the minimum valid eating speed.
 
 ---
 
 ## 🧠 Algorithm
 
 ```text
-Function calculateTotalHours(piles, speed):
-    totalHours = 0
-    For each pile in piles:
-        totalHours = totalHours + ceil(pile / speed)
-    Return totalHours
-
-Function minEatingSpeed(piles, h):
+function minEatingSpeed(piles, h):
     low = 1
-    high = max element in piles
+    high = max_element(piles)
 
-    While low <= high:
+    while low <= high:
         mid = low + (high - low) / 2
-        
-        If calculateTotalHours(piles, mid) <= h:
-            high = mid - 1    // Try finding a smaller valid speed
-        Else:
-            low = mid + 1     // Speed too slow, increase it
+        total_hours = calculateTotalHours(piles, mid)
 
-    Return low
+        if total_hours <= h:
+            high = mid - 1      // Try to find a smaller feasible speed
+        else:
+            low = mid + 1       // Speed is too slow, increase it
+
+    return low
+
+function calculateTotalHours(piles, speed):
+    total_hours = 0
+    for each pile in piles:
+        total_hours += (pile + speed - 1) / speed  // Ceiling division
+    return total_hours
 ```
 
 ---
 
 ## 🔍 Dry Run
 
-Let's trace the algorithm with `piles = [3, 6, 7, 11]` and `h = 8`:
+### Input
+- `piles = [3, 6, 7, 11]`
+- `h = 8`
 
-- Initial Bounds: `low = 1`, `high = 11`
+### Execution
 
-| Iteration | `low` | `high` | `mid` | Hours Needed Calculation | Total Hours | Feasible? ($\le 8$) | Action |
-| :---: | :---: | :---: | :---: | :--- | :---: | :---: | :--- |
-| **1** | 1 | 11 | **6** | $\lceil 3/6 \rceil + \lceil 6/6 \rceil + \lceil 7/6 \rceil + \lceil 11/6 \rceil = 1 + 1 + 2 + 2$ | **6** | Yes ($6 \le 8$) | `high = 6 - 1 = 5` |
-| **2** | 1 | 5 | **3** | $\lceil 3/3 \rceil + \lceil 6/3 \rceil + \lceil 7/3 \rceil + \lceil 11/3 \rceil = 1 + 2 + 3 + 4$ | **10** | No ($10 > 8$) | `low = 3 + 1 = 4` |
-| **3** | 4 | 5 | **4** | $\lceil 3/4 \rceil + \lceil 6/4 \rceil + \lceil 7/4 \rceil + \lceil 11/4 \rceil = 1 + 2 + 2 + 3$ | **8** | Yes ($8 \le 8$) | `high = 4 - 1 = 3` |
+- **Initial Search Range**: `low = 1`, `high = 11` (since $\text{max}(3, 6, 7, 11) = 11$)
 
-- **Loop Ends:** `low = 4`, `high = 3` (`low > high`).
-- **Result:** Return `low = 4`.
+| Iteration | `low` | `high` | `mid` (Speed) | Hours per Pile | Total Hours | Condition (`Total <= 8`) | Next Range |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** | 1 | 11 | **6** | $\lceil 3/6 \rceil=1, \lceil 6/6 \rceil=1, \lceil 7/6 \rceil=2, \lceil 11/6 \rceil=2$ | **6** | $6 \le 8$ **(Valid)** | `high = 5` |
+| **2** | 1 | 5 | **3** | $\lceil 3/3 \rceil=1, \lceil 6/3 \rceil=2, \lceil 7/3 \rceil=3, \lceil 11/3 \rceil=4$ | **10** | $10 > 8$ **(Invalid)** | `low = 4` |
+| **3** | 4 | 5 | **4** | $\lceil 3/4 \rceil=1, \lceil 6/4 \rceil=2, \lceil 7/4 \rceil=2, \lceil 11/4 \rceil=3$ | **8** | $8 \le 8$ **(Valid)** | `high = 3` |
+
+- **Termination**: Loop ends because `low` ($4$) > `high` ($3$).
+- **Output**: `low = 4`.
 
 ---
 
 ## ⚠️ Edge Cases
 
-- **$h$ equals the number of piles ($h = N$):** Koko must eat at least one full pile per hour. The algorithm correctly converges to $\max(piles)$.
-- **Integer Overflow:** Accumulation of hours for all piles can exceed standard 32-bit integer limits (`INT_MAX`) when $h$ and pile sizes are large ($10^9$). Using a 64-bit integer (`long long`) for `totalHours` prevents overflow.
-- **Single Pile ($N = 1$):** The search range correctly reduces to $\lceil piles[0] / h \rceil$.
+- **Minimum possible hours ($h = \text{piles.length}$)**: Koko must eat each pile in at most 1 hour. The required speed will be equal to $\text{max}(piles)$, which is handled correctly as `high` starts at $\text{max}(piles)$.
+- **Integer Overflow**: Summing calculated hours across all piles can exceed standard 32-bit integer limits when pile sizes and speeds are large. Use a 64-bit integer (`long long` in C++) for `total_hours`.
+- **Floating-Point Inaccuracy**: Using `ceil((double)pile / speed)` can introduce floating-point precision issues. The integer formula `(pile + speed - 1) / speed` avoids this entirely.
 
 ---
 
 ## ⏱️ Complexity Analysis
 
 ### Time Complexity
-- **$O(N \log M)$**, where $N$ is the number of piles and $M = \max(piles)$.
-- The binary search range is $[1, M]$, requiring $O(\log M)$ iterations. In each iteration, we iterate through all $N$ piles to sum up the hours, taking $O(N)$ time.
+- **$O(N \log M)$**, where $N$ is the number of piles (`piles.length`) and $M$ is the maximum pile size ($\text{max}(piles)$).
+- **Reason**: The search space size is $M$. Binary search takes $O(\log M)$ steps. In each step, we iterate over $N$ elements to compute total hours, leading to a total time complexity of $O(N \log M)$.
 
 ### Space Complexity
-- **$O(1)$** auxiliary space.
-- The algorithm uses only a few variables (`low`, `high`, `mid`, `totalH`) without requiring additional data structures.
+- **$O(1)$**
+- **Reason**: The algorithm uses a constant amount of extra space for pointers and sum variables without requiring additional data structures.
 
 ---
 
 ## 🎯 Key Takeaways
 
-- **Binary Search on Answer** is a powerful technique when searching in a bounded numerical range with a monotonic decision function.
-- Integer ceiling division $\lceil a / b \rceil$ can be safely implemented using `(a + b - 1) / b` without converting to floating-point numbers.
-- Always be mindful of potential 32-bit integer overflow when computing sums of large numbers in helper functions.
+- **Binary Search on Answer Space**: When a decision problem exhibits monotonic behavior over a bounded numeric range, binary search can optimize linear searches from $O(M)$ to $O(\log M)$.
+- **Integer Ceiling Division**: Computing $\lceil a / b \rceil$ safely with integer arithmetic can be written as `(a + b - 1) / b`.
+- **Search Space Bounds**: Defining tight boundaries ($low = 1$, $high = \text{max}(piles)$) ensures minimal iterations while guaranteeing correctness.
+- **Data Type Safety**: Always account for intermediate sum overflows when accumulating values over large datasets.

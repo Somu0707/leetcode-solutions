@@ -6,9 +6,9 @@
 
 Automatically generates professional documentation for every accepted LeetCode solution using **Python**, **GitHub Actions**, **Google Gemini AI**, and the **LeetCode GraphQL API**.
 
-![Problems](https://img.shields.io/badge/Problems-5-blue)
-![Easy](https://img.shields.io/badge/Easy-4-success)
-![Medium](https://img.shields.io/badge/Medium-1-orange)
+![Problems](https://img.shields.io/badge/Problems-8-blue)
+![Easy](https://img.shields.io/badge/Easy-6-success)
+![Medium](https://img.shields.io/badge/Medium-2-orange)
 ![Hard](https://img.shields.io/badge/Hard-0-red)
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
@@ -62,20 +62,20 @@ the repository dashboard.
 
 | Metric | Value |
 |--------|------:|
-| Total Problems | **5** |
-| Easy | 🟢 4 |
-| Medium | 🟠 1 |
+| Total Problems | **8** |
+| Easy | 🟢 6 |
+| Medium | 🟠 2 |
 | Hard | 🔴 0 |
-| Average Acceptance | **58.89%** |
-| Unique Topics | **7** |
+| Average Acceptance | **61.77%** |
+| Unique Topics | **9** |
 
 ## 📈 Repository Insights
 
 | Metric | Value |
 |--------|------:|
-| 🏆 Most Solved Topic | **Array** |
-| 📚 Average Topics / Problem | **2.00** |
-| 📅 Average Problems / Month | **5.00** |
+| 🏆 Most Solved Topic | **Linked List** |
+| 📚 Average Topics / Problem | **2.12** |
+| 📅 Average Problems / Month | **8.00** |
 | 🎯 Current Milestone | **100 Problems** |
 
 ## 🏅 Achievement Dashboard
@@ -90,14 +90,14 @@ the repository dashboard.
 ## 🎯 Progress
 
 ``` text
-█░░░░░░░░░░░░░░░░░░░ 5 / 100 (5.0%)
+█░░░░░░░░░░░░░░░░░░░ 8 / 100 (8.0%)
 ```
 
 ## 📊 Difficulty Distribution
 
 ``` text
-🟢 Easy    ████████████████████ 4
-🟠 Medium  █████░░░░░░░░░░░░░░░ 1
+🟢 Easy    ████████████████████ 6
+🟠 Medium  ███████░░░░░░░░░░░░░ 2
 🔴 Hard    ░░░░░░░░░░░░░░░░░░░░ 0
 ```
 
@@ -107,25 +107,25 @@ the repository dashboard.
 
 ## 🆕 Recently Solved
 
+- 🆕 [Middle of the Linked List](./0876-middle-of-the-linked-list/README.md)
+- 🆕 [Merge Two Sorted Lists](./0021-merge-two-sorted-lists/README.md)
+- 🆕 [Add Two Numbers](./0002-add-two-numbers/README.md)
 - 🆕 [Koko Eating Bananas](./0875-koko-eating-bananas/README.md)
 - 🆕 [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md)
-- 🆕 [Base 7](./0504-base-7/README.md)
-- 🆕 [First Bad Version](./0278-first-bad-version/README.md)
-- 🆕 [Two Sum](./0001-two-sum/README.md)
 
 ## 📅 Monthly Activity
 
 | Month | Problems Solved |
 |-------|----------------:|
-| July 2026 | 5 |
+| July 2026 | 8 |
 
 ## 🏷️ Top Topics
 
+- **Linked List** : 3
 - **Array** : 2
+- **Math** : 2
+- **Recursion** : 2
 - **Binary Search** : 2
-- **String** : 2
-- **Hash Table** : 1
-- **Interactive** : 1
 
 ---
 
@@ -137,7 +137,7 @@ the repository dashboard.
 | AI README Generator | ✅ |
 | GitHub Actions | ✅ |
 | Root README Generator | ✅ |
-| Last Updated | **21 Jul 2026 21:11** |
+| Last Updated | **22 Jul 2026 08:13** |
 
 ---
 
@@ -150,10 +150,13 @@ the repository dashboard.
 | # | Problem | Difficulty | Acceptance | Topics | README |
 |---:|---------|------------|-----------:|--------|:------:|
 | 0001 | [Two Sum](./0001-two-sum/README.md) | 🟢 Easy | 57.84% | Array, Hash Table | ✅ |
+| 0002 | [Add Two Numbers](./0002-add-two-numbers/README.md) | 🟠 Medium | 48.92% | Linked List, Math, Recursion | ✅ |
+| 0021 | [Merge Two Sorted Lists](./0021-merge-two-sorted-lists/README.md) | 🟢 Easy | 68.60% | Linked List, Recursion | ✅ |
 | 0278 | [First Bad Version](./0278-first-bad-version/README.md) | 🟢 Easy | 47.38% | Binary Search, Interactive | ✅ |
 | 0504 | [Base 7](./0504-base-7/README.md) | 🟢 Easy | 54.90% | Math, String | ✅ |
 | 0557 | [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md) | 🟢 Easy | 84.08% | Two Pointers, String | ✅ |
 | 0875 | [Koko Eating Bananas](./0875-koko-eating-bananas/README.md) | 🟠 Medium | 50.27% | Array, Binary Search | ✅ |
+| 0876 | [Middle of the Linked List](./0876-middle-of-the-linked-list/README.md) | 🟢 Easy | 82.15% | Linked List, Two Pointers | ✅ |
 
 </details>
 
@@ -241,26 +244,3 @@ Computer Science Engineering Student
 
 Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 </div>
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Linked List
-|  |
-| ------- |
-| [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
-| [0021-merge-two-sorted-lists](https://github.com/Somu0707/leetcode-solutions/tree/master/0021-merge-two-sorted-lists) |
-| [0876-middle-of-the-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0876-middle-of-the-linked-list) |
-## Two Pointers
-|  |
-| ------- |
-| [0876-middle-of-the-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0876-middle-of-the-linked-list) |
-## Math
-|  |
-| ------- |
-| [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
-## Recursion
-|  |
-| ------- |
-| [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
-| [0021-merge-two-sorted-lists](https://github.com/Somu0707/leetcode-solutions/tree/master/0021-merge-two-sorted-lists) |
-<!---LeetCode Topics End-->

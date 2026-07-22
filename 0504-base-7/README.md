@@ -46,73 +46,55 @@ Output: "-10"
 
 ## 💭 Thought Process
 
-When converting a number from decimal (base-10) to another positional numeral system like base-7, we need to understand how numbers are represented across different bases:
+When tasked with representing a base-10 integer in another base (such as base 7), we need to express the number as a sum of powers of the target base:
 
-- In base-10, place values represent powers of $10$ ($10^0, 10^1, 10^2, \dots$).
-- In base-7, place values represent powers of $7$ ($7^0, 7^1, 7^2, \dots$).
+$$\text{num} = d_k \cdot 7^k + d_{k-1} \cdot 7^{k-1} + \dots + d_1 \cdot 7^1 + d_0 \cdot 7^0$$
 
-To convert a decimal number into base-7:
-1. We extract the least significant digit by computing `num % 7`.
-2. We then shift the number to the right by dividing it by $7$ (`num / 7`).
-3. We repeat this process until the number becomes $0$.
+To extract the digits ($d_0, d_1, \dots, d_k$):
+1. Taking `num % 7` isolated the least significant digit ($d_0$), because all higher power terms ($7^1, 7^2, \dots$) are divisible by 7.
+2. Dividing `num` by `7` (`num / 7`) shifts all digits one place to the right, discarding $d_0$ and making $d_1$ the new least significant digit.
+3. Repeating this process until `num` reaches `0` yields all the base-7 digits.
 
-Since the digits are extracted from right-to-left (least significant to most significant), the resulting sequence of digits must be reversed at the end.
-
-**Handling Signs and Edge Cases:**
-- Negative numbers follow the exact same base-7 magnitude conversion, with a leading `"-"` sign attached at the end. We can store whether the initial number was negative, convert the number to its absolute magnitude, and re-attach the sign at the end.
-- The number `0` is a special case because a loop condition checking for `num > 0` wouldn't execute. It can be handled directly as an early exit.
+Since this process extracts digits from right to left (least significant to most significant), the generated digit sequence will be reversed. We simply need to reverse the result string at the end and re-apply the negative sign if the original number was negative.
 
 ---
 
 ## 💡 Intuition
 
-The algorithm relies on mathematical repeated division:
-- **Modulo Operation (`% 7`)**: Isolates the remainder, which directly corresponds to the digit for the current base-7 position.
-- **Integer Division (`/ 7`)**: Reduces the number magnitude by a factor of 7, effectively discarding the digit we just processed.
-
-Using string concatenation and a final string reversal is the most efficient way to assemble the base-7 representation because we discover the least significant digits first.
+- **Repeated Division & Modulo**: The modulo operator (`%`) extracts the current lowest digit, while integer division (`/`) removes that digit so we can process the next power of 7.
+- **Handling Signs**: Base conversions work identical for magnitude regardless of sign. By saving the sign flag and operating on `abs(num)`, we avoid dealing with negative remainders.
+- **Order of Digits**: The first digit extracted is the rightmost digit of the base-7 representation. Thus, accumulating characters sequentially builds the string backwards, necessitating a final string reversal.
 
 ---
 
 ## 🚀 Approach
 
-1. **Handle Zero**: Check if `num` is `0`. If so, immediately return `"0"`.
-2. **Track Sign**: Record whether `num` is negative using a boolean flag, and transform `num` to its absolute value.
-3. **Repeated Division**:
-   - Compute `num % 7` to get the current base-7 digit.
-   - Convert the digit to a character and append it to a result string.
-   - Divide `num` by $7$ using integer division.
-   - Continue until `num` becomes `0`.
-4. **Format Result**:
-   - Reverse the result string to restore the digits from most significant to least significant.
-   - If the original number was negative, prepend a `"-"` sign.
-5. Return the final string.
+1. **Check for Zero**: If `num` is `0`, return `"0"` directly since the main loop wouldn't execute.
+2. **Handle Negative Sign**: Store whether `num` is negative in a boolean flag, then convert `num` to its absolute value.
+3. **Extract Base-7 Digits**:
+   - Loop while `num > 0`.
+   - Calculate `num % 7` and convert the remainder (0–6) into its character equivalent.
+   - Append the character to our result string.
+   - Update `num = num / 7`.
+4. **Reverse the Result**: Reverse the collected string to put digits in the correct order (most significant digit first).
+5. **Apply Sign**: Prepend `"-"` if the original number was negative.
+6. **Return**: Return the final formatted string.
 
 ---
 
 ## 🧠 Algorithm
 
-```text
-function convertToBase7(num):
-    if num is equal to 0:
-        return "0"
-    
-    isNegative = (num < 0)
-    num = absolute_value(num)
-    result = ""
-    
-    while num > 0:
-        remainder = num mod 7
-        append character representation of remainder to result
-        num = num / 7 (integer division)
-    
-    reverse(result)
-    
-    if isNegative is true:
-        result = "-" + result
-        
-    return result
-```
+1. If `num` equals `0`, return `"0"`.
+2. Set `is_negative` to `true` if `num < 0`, else `false`.
+3. Set `num` to `abs(num)`.
+4. Initialize an empty string `digits`.
+5. While `num > 0`:
+   - `remainder = num MOD 7`
+   - Append `remainder` as a character to `digits`
+   - `num = num DIV 7`
+6. Reverse `digits`.
+7. If `is_negative` is `true`, prepend `"-"` to `digits`.
+8. Return `digits`.
 
 ---
 
@@ -120,63 +102,44 @@ function convertToBase7(num):
 
 Let's trace the algorithm with `num = 100`:
 
-1. **Initial State**:
-   - `num = 100`
-   - `isNegative = false`
-   - `result = ""`
+| Step | `num` | `num % 7` (Digit) | `num / 7` | Appended Character | String (`ans`) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Start** | `100` | — | — | — | `""` |
+| **Iter 1** | `100` | `2` | `14` | `'2'` | `"2"` |
+| **Iter 2** | `14` | `0` | `2` | `'0'` | `"20"` |
+| **Iter 3** | `2` | `2` | `0` | `'2'` | `"202"` |
 
-2. **Loop Iterations**:
-
-   - **Iteration 1**:
-     - `remainder` = `100 % 7` = `2`
-     - Append `'2'` $\rightarrow$ `result = "2"`
-     - `num` = `100 / 7` = `14`
-
-   - **Iteration 2**:
-     - `remainder` = `14 % 7` = `0`
-     - Append `'0'` $\rightarrow$ `result = "20"`
-     - `num` = `14 / 7` = `2`
-
-   - **Iteration 3**:
-     - `remainder` = `2 % 7` = `2`
-     - Append `'2'` $\rightarrow$ `result = "202"`
-     - `num` = `2 / 7` = `0`
-
-3. **Post-Processing**:
-   - Loop ends because `num == 0`.
-   - Reverse `result`: `"202"` reversed is `"202"`.
-   - `isNegative` is `false`, so no sign is added.
-
-4. **Output**: `"202"`
+- **Loop terminates** because `num` becomes `0`.
+- **Reverse string**: `"202"` reversed is `"202"`.
+- **Check sign**: `num` was positive, so no `"-"` is prepended.
+- **Final Output**: `"202"`
 
 ---
 
 ## ⚠️ Edge Cases
 
-- **Zero (`num = 0`)**: Directly handled by an early check returning `"0"`.
-- **Negative Numbers (e.g., `num = -7`)**: Handled by storing the sign, taking `abs(-7) = 7`, performing conversion (`"01"` $\rightarrow$ reversed to `"10"`), and prepending `"-"` to produce `"-10"`.
-- **Exact Powers of 7 (e.g., `num = 7`, `49`)**: Produces remainders of `0` correctly followed by `1` (e.g., $7 \rightarrow 10_7$).
-- **Maximum/Minimum Constraints**: Handled within standard integer limits without integer overflow risks.
+- **Zero (`num = 0`)**: The loop condition `num > 0` fails immediately for zero. The initial check explicitly catches this and returns `"0"`.
+- **Negative Numbers**: Extracted cleanly by taking `abs(num)` and appending `"-"` after digit extraction and string reversal.
+- **Single-Digit Base-7 Numbers ($0 \le |num| \le 6$)**: The loop runs exactly once, generating a single character string which reverses to itself correctly.
 
 ---
 
 ## ⏱️ Complexity Analysis
 
-### Time Complexity: $\mathcal{O}(\log_7 |num|)$
-- In each step of the loop, `num` is divided by $7$. The number of iterations is bounded by the number of digits in the base-7 representation, which is $\lfloor\log_7 |num|\rfloor + 1$.
-- Reversing the string takes time proportional to the length of the string, which is also $\mathcal{O}(\log_7 |num|)$.
+### Time Complexity
+- **$O(\log_7 |N|)$**: The algorithm divides `num` by $7$ in each step. The number of digits in base $7$ for a number $N$ is $\lfloor \log_7 |N| \rfloor + 1$. Reversing a string of length $L = \log_7 |N|$ takes $O(L)$ time. Hence, the total time complexity is logarithmic.
 
-### Space Complexity: $\mathcal{O}(\log_7 |num|)$
-- Extra space is only required to store the constructed string representing the base-7 digits, which has a length of $\mathcal{O}(\log_7 |num|)$.
+### Space Complexity
+- **$O(\log_7 |N|)$**: The auxiliary space is used to store the output string, which holds at most $\lceil \log_7 |N| \rceil + 2$ characters (including potential minus sign).
 
 ---
 
 ## 🎯 Key Takeaways
 
-- Base conversion problems are naturally solved using **repeated division and modulo operations**.
-- Modulo (`%`) extracts digits from right to left (LSB to MSB), requiring a final **string reversal**.
-- Separating the sign logic from magnitude calculations keeps the core conversion clean and simple.
-- Repeatedly dividing a number by a constant base yields logarithmic time complexity ($\mathcal{O}(\log_{base} N)$).
+- Base conversion problems are naturally solved using repeated **modulo** (to extract digits) and **integer division** (to shift digits).
+- Modulo operations extract digits from **least significant to most significant**, making a final string reversal necessary.
+- Separating sign logic (`abs()`) from base arithmetic prevents edge cases involving negative remainder definitions across different programming languages.
+- The number of iterations required to convert a number $N$ into base $B$ is proportional to $O(\log_B N)$.
 
 ---
 
