@@ -247,9 +247,18 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## Linked List
 |  |
 | ------- |
+| [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
 | [0876-middle-of-the-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0876-middle-of-the-linked-list) |
 ## Two Pointers
 |  |
 | ------- |
 | [0876-middle-of-the-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0876-middle-of-the-linked-list) |
+## Math
+|  |
+| ------- |
+| [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
+## Recursion
+|  |
+| ------- |
+| [0002-add-two-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0002-add-two-numbers) |
 <!---LeetCode Topics End-->
