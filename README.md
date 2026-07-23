@@ -255,6 +255,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0019-remove-nth-node-from-end-of-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0019-remove-nth-node-from-end-of-list) |
+| [0141-linked-list-cycle](https://github.com/Somu0707/leetcode-solutions/tree/master/0141-linked-list-cycle) |
 | [0328-odd-even-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0328-odd-even-linked-list) |
 | [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
 ## Stack
@@ -277,4 +278,9 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0019-remove-nth-node-from-end-of-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0019-remove-nth-node-from-end-of-list) |
+| [0141-linked-list-cycle](https://github.com/Somu0707/leetcode-solutions/tree/master/0141-linked-list-cycle) |
+## Hash Table
+|  |
+| ------- |
+| [0141-linked-list-cycle](https://github.com/Somu0707/leetcode-solutions/tree/master/0141-linked-list-cycle) |
 <!---LeetCode Topics End-->
