@@ -254,6 +254,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## Linked List
 |  |
 | ------- |
+| [0019-remove-nth-node-from-end-of-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0019-remove-nth-node-from-end-of-list) |
 | [0328-odd-even-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0328-odd-even-linked-list) |
 | [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
 ## Stack
@@ -272,4 +273,8 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
+## Two Pointers
+|  |
+| ------- |
+| [0019-remove-nth-node-from-end-of-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0019-remove-nth-node-from-end-of-list) |
 <!---LeetCode Topics End-->
