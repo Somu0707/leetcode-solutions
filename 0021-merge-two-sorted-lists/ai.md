@@ -1,125 +1,125 @@
 ## 💭 Thought Process
 
-When faced with merging two sorted linked lists, a brute-force approach might involve copying all node values into an array, sorting the array, and then building a new linked list from scratch. However, this strategy completely ignores the fact that both input lists are **already sorted**, leading to unnecessary $O((N + M) \log(N + M))$ sorting time and $O(N + M)$ extra space.
+When faced with merging two linked lists, a initial brute-force strategy might be to dump all values from both lists into an array, sort the array using a standard sorting algorithm, and construct a brand new linked list from the sorted values.
 
-To optimize, we can leverage the pre-sorted property of both lists. At any step, the next smallest element in our merged list must be the smaller of the two current head nodes of `list1` and `list2`. This leads to a Two-Pointer / Two-Cursor strategy: compare the elements at the front of each list, append the smaller node to our result, and move that list's pointer forward. Repeat this until one list is exhausted, then append the remainder of the other list.
+While simple, this naive approach completely ignores a crucial property given in the problem: **both input lists are already sorted**. Sorting an unsorted array of size $N + M$ takes $O((N + M) \log(N + M))$ time and requires $O(N + M)$ extra memory.
+
+To optimize, we can use the two-pointer strategy (similar to the merge step in Merge Sort):
+1. Compare the current nodes at the heads of both lists.
+2. The smaller node must come first in our merged list.
+3. Rewire pointers in-place rather than allocating new memory.
+
+This observation allows us to solve the problem in a single linear pass using constant extra space.
 
 ---
 
 ## 💡 Intuition
 
-The key insight is that merging two sorted linked lists is identical to the **merge step** in the Merge Sort algorithm:
+The key insight is to build the merged list incrementally by selecting the smallest available element from the heads of `list1` and `list2`. 
 
-1. **Exploiting Pre-Sorted Order**: Since both lists are monotonically non-decreasing, we only ever need to look at the current heads of both lists to determine the globally smallest unplaced node.
-2. **In-Place Pointer Splicing**: Instead of creating new nodes, we can simply re-wire the existing `next` pointers. This gives us an optimal $O(1)$ auxiliary space complexity.
-3. **Dummy Node Trick**: Managing the head of a dynamic linked list often requires extra conditional checks for the very first node. Introducing a **dummy node** acts as a temporary anchor, allowing us to treat all node insertions uniformly.
+A common challenge in linked list manipulation is handling the head of the new list—specifically, setting up the initial head node requires additional conditional checks. To elegantly bypass this edge case, we introduce a **dummy node**. The dummy node serves as a stationary reference point before the actual start of our merged list, making pointer management clean and uniform throughout the iteration.
+
+Because both input lists are already sorted, we only ever need to look at the current front nodes of each list to decide which node comes next.
 
 ---
 
 ## 🚀 Approach
 
-1. **Handle Base Cases**: If either `list1` or `list2` is `NULL`, directly return the non-null list.
-2. **Initialize Anchor**: Create a stack-allocated `dummy` node and a pointer `merge` initialized to point to `dummy`.
-3. **Compare and Stitch**:
-   - Loop while both `list1` and `list2` are non-null.
+1. **Handle Base Cases:** If either input list is empty (`NULL`), return the other list immediately since no merging is required.
+2. **Initialize Dummy Node:** Create a dummy node on the stack to act as a anchor for the merged list. Create a `merge` pointer initialized to point to this dummy node.
+3. **Iterate and Compare:** Traverse both lists simultaneously using a `while` loop that continues as long as both `list1` and `list2` are not `NULL`.
    - Compare `list1->val` and `list2->val`.
-   - Attach the smaller (or equal) node to `merge->next`.
-   - Advance the corresponding list pointer (`list1` or `list2`).
-   - Advance the `merge` pointer to `merge->next`.
-4. **Append Remaining Nodes**: Once the loop exits, at least one list will be exhausted. Connect the remaining non-null list directly to `merge->next`.
-5. **Return Result**: Return `dummy.next`, which points to the true head of the newly merged sorted list.
+   - Attach the node with the smaller (or equal) value to `merge->next`.
+   - Advance the pointer of the list from which the node was chosen.
+   - Advance the `merge` pointer forward (`merge = merge->next`).
+4. **Attach Remaining Nodes:** When the loop finishes, at least one list will be exhausted. Simply attach the non-empty list (if any) directly to `merge->next`.
+5. **Return Result:** Return `dummy.next`, which points to the true head of the merged sorted linked list.
 
 ---
 
 ## 🧠 Algorithm
 
-1. IF list1 is null, RETURN list2.
-2. IF list2 is null, RETURN list1.
-3. CREATE dummy node.
-4. SET merge = pointer to dummy node.
-5. WHILE list1 is not null AND list2 is not null:
-    - IF list1.val <= list2.val:
-        - SET merge.next = list1
-        - SET list1 = list1.next
-    - ELSE:
-        - SET merge.next = list2
-        - SET list2 = list2.next
-    - SET merge = merge.next
-6. IF list1 is not null:
-    - SET merge.next = list1
-   ELSE:
-    - SET merge.next = list2
-7. RETURN dummy.next
+1. Check if `list1` is null -> return `list2`.
+2. Check if `list2` is null -> return `list1`.
+3. Create a `dummy` node and set a `current` pointer to `dummy`.
+4. While `list1` is not null AND `list2` is not null:
+   - If `list1.val` <= `list2.val`:
+     - Set `current.next` = `list1`
+     - Move `list1` to `list1.next`
+   - Else:
+     - Set `current.next` = `list2`
+     - Move `list2` to `list2.next`
+   - Move `current` to `current.next`
+5. If `list1` is not null, set `current.next` = `list1`.
+6. Else, set `current.next` = `list2`.
+7. Return `dummy.next`.
 
 ---
 
 ## 🔍 Dry Run
 
-Let's trace the execution for `list1 = [1, 2, 4]` and `list2 = [1, 3, 4]`:
+Let's trace the algorithm with `list1 = [1, 2, 4]` and `list2 = [1, 3, 4]`:
 
-* **Initialization**:
-  - `dummy` node created. `merge` $\rightarrow$ `dummy`.
-  - `list1` points to `1`, `list2` points to `1`.
+* **Initialization:**
+  * `dummy` = `[-1]`, `merge` points to `dummy`.
+  * `list1` -> `1`, `list2` -> `1`.
 
-* **Iteration 1**:
-  - Compare `list1.val (1)` and `list2.val (1)`. They are equal.
-  - Set `merge.next` $\rightarrow$ `list1 (1)`.
-  - Advance `list1` to `2`, advance `merge` to `1`.
+* **Step 1:** Compare `list1->val` (1) and `list2->val` (1).
+  * `1 <= 1` is True.
+  * Connect `merge->next` to `list1` (Node `1`).
+  * Advance `list1` to `2`. Advance `merge` to Node `1`.
 
-* **Iteration 2**:
-  - Compare `list1.val (2)` and `list2.val (1)`. `list2` is smaller.
-  - Set `merge.next` $\rightarrow$ `list2 (1)`.
-  - Advance `list2` to `3`, advance `merge` to `1`.
+* **Step 2:** Compare `list1->val` (2) and `list2->val` (1).
+  * `2 <= 1` is False.
+  * Connect `merge->next` to `list2` (Node `1`).
+  * Advance `list2` to `3`. Advance `merge` to Node `1`.
 
-* **Iteration 3**:
-  - Compare `list1.val (2)` and `list2.val (3)`. `list1` is smaller.
-  - Set `merge.next` $\rightarrow$ `list1 (2)`.
-  - Advance `list1` to `4`, advance `merge` to `2`.
+* **Step 3:** Compare `list1->val` (2) and `list2->val` (3).
+  * `2 <= 3` is True.
+  * Connect `merge->next` to `list1` (Node `2`).
+  * Advance `list1` to `4`. Advance `merge` to Node `2`.
 
-* **Iteration 4**:
-  - Compare `list1.val (4)` and `list2.val (3)`. `list2` is smaller.
-  - Set `merge.next` $\rightarrow$ `list2 (3)`.
-  - Advance `list2` to `4`, advance `merge` to `3`.
+* **Step 4:** Compare `list1->val` (4) and `list2->val` (3).
+  * `4 <= 3` is False.
+  * Connect `merge->next` to `list2` (Node `3`).
+  * Advance `list2` to `4`. Advance `merge` to Node `3`.
 
-* **Iteration 5**:
-  - Compare `list1.val (4)` and `list2.val (4)`. They are equal.
-  - Set `merge.next` $\rightarrow$ `list1 (4)`.
-  - Advance `list1` to `NULL`, advance `merge` to `4`.
+* **Step 5:** Compare `list1->val` (4) and `list2->val` (4).
+  * `4 <= 4` is True.
+  * Connect `merge->next` to `list1` (Node `4`).
+  * Advance `list1` to `NULL`. Advance `merge` to Node `4`.
 
-* **Loop Termination**:
-  - `list1` is now `NULL`. Exit loop.
+* **Loop Termination & Cleanup:**
+  * Loop ends because `list1` is `NULL`.
+  * `list2` still has Node `4`. Attach remaining `list2` to `merge->next`.
 
-* **Attach Remaining**:
-  - `list2` is not `NULL` (points to `4`).
-  - Set `merge.next` $\rightarrow$ `list2 (4)`.
-
-* **Final Return**:
-  - Return `dummy.next`, which represents `[1, 1, 2, 3, 4, 4]`.
+* **Final Result:**
+  * Return `dummy.next` -> `[1 -> 1 -> 2 -> 3 -> 4 -> 4]`.
 
 ---
 
 ## ⚠️ Edge Cases
 
-- **Both Lists Empty (`list1 = [], list2 = []`)**: Handled by initial check (`list1 == NULL`), returning `list2` (`NULL`).
-- **One List Empty (`list1 = [], list2 = [0]`)**: Immediately returns the non-empty list without unnecessary loop iterations.
-- **Lists of Unequal Lengths**: The `while` loop terminates as soon as the shorter list ends, and the remaining nodes of the longer list are attached in $O(1)$ time.
-- **Duplicate Elements**: The `<=` condition ensures stability and handles identical elements seamlessly.
+- **Both Lists Empty (`list1 = [], list2 = []`):** Handled by initial check `if (list1 == NULL) return list2;`, correctly returning `NULL`.
+- **One List Empty (`list1 = [], list2 = [0]`):** Immediately returns `list2` without entering any loops.
+- **Lists of Unequal Lengths:** Handled automatically after the `while` loop by appending the non-empty list directly to the end of the merged list in $O(1)$ time.
+- **Lists with Duplicate Values:** Handled seamlessly by using `<=`, preserving stability and relative order.
 
 ---
 
 ## ⏱️ Complexity Analysis
 
 ### Time Complexity
-$\mathcal{O}(N + M)$, where $N$ and $M$ are the number of nodes in `list1` and `list2` respectively. In the worst case, we compare elements from both lists until one is exhausted, performing a single pass over the nodes.
+- **$\mathcal{O}(N + M)$**, where $N$ and $M$ are the number of nodes in `list1` and `list2` respectively. In the worst case, we traverse every node from both lists exactly once.
 
 ### Space Complexity
-$\mathcal{O}(1)$ auxiliary space. The algorithm reuses existing node pointers and modifies them in-place, requiring only a dummy node and pointers.
+- **$\mathcal{O}(1)$** auxiliary space. The algorithm splices existing nodes in-place by adjusting pointer references without creating any new node allocations.
 
 ---
 
 ## 🎯 Key Takeaways
 
-- Dummy nodes eliminate special-case code for head node initialization in linked list problems.
-- Taking advantage of pre-sorted inputs reduces time complexity from $O(K \log K)$ to linear time $O(K)$.
-- In-place pointer manipulation avoids unnecessary dynamic memory allocation, achieving optimal space usage.
-- This comparison-based merging technique serves as the core foundation for the Divide and Conquer **Merge Sort** algorithm on lists.
+- **Dummy Nodes Simplify Code:** Using a dummy node avoids writing special conditional logic for setting the head of a linked list.
+- **Exploit Input Properties:** Taking advantage of the fact that inputs are already sorted reduces time complexity from $O(K \log K)$ to $O(K)$.
+- **In-Place Mutation:** Re-pointing existing links allows optimal $O(1)$ space complexity compared to constructing brand-new list instances.
+- **Two-Pointer Paradigm:** Comparing pointers at the front of sorted structures is a fundamental building block for merge operations across data structures.

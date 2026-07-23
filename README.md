@@ -6,9 +6,9 @@
 
 Automatically generates professional documentation for every accepted LeetCode solution using **Python**, **GitHub Actions**, **Google Gemini AI**, and the **LeetCode GraphQL API**.
 
-![Problems](https://img.shields.io/badge/Problems-8-blue)
-![Easy](https://img.shields.io/badge/Easy-6-success)
-![Medium](https://img.shields.io/badge/Medium-2-orange)
+![Problems](https://img.shields.io/badge/Problems-12-blue)
+![Easy](https://img.shields.io/badge/Easy-7-success)
+![Medium](https://img.shields.io/badge/Medium-5-orange)
 ![Hard](https://img.shields.io/badge/Hard-0-red)
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
@@ -62,20 +62,20 @@ the repository dashboard.
 
 | Metric | Value |
 |--------|------:|
-| Total Problems | **8** |
-| Easy | 🟢 6 |
-| Medium | 🟠 2 |
+| Total Problems | **12** |
+| Easy | 🟢 7 |
+| Medium | 🟠 5 |
 | Hard | 🔴 0 |
-| Average Acceptance | **61.77%** |
-| Unique Topics | **9** |
+| Average Acceptance | **61.84%** |
+| Unique Topics | **13** |
 
 ## 📈 Repository Insights
 
 | Metric | Value |
 |--------|------:|
 | 🏆 Most Solved Topic | **Linked List** |
-| 📚 Average Topics / Problem | **2.12** |
-| 📅 Average Problems / Month | **8.00** |
+| 📚 Average Topics / Problem | **2.42** |
+| 📅 Average Problems / Month | **12.00** |
 | 🎯 Current Milestone | **100 Problems** |
 
 ## 🏅 Achievement Dashboard
@@ -90,14 +90,14 @@ the repository dashboard.
 ## 🎯 Progress
 
 ``` text
-█░░░░░░░░░░░░░░░░░░░ 8 / 100 (8.0%)
+██░░░░░░░░░░░░░░░░░░ 12 / 100 (12.0%)
 ```
 
 ## 📊 Difficulty Distribution
 
 ``` text
-🟢 Easy    ████████████████████ 6
-🟠 Medium  ███████░░░░░░░░░░░░░ 2
+🟢 Easy    ████████████████████ 7
+🟠 Medium  ██████████████░░░░░░ 5
 🔴 Hard    ░░░░░░░░░░░░░░░░░░░░ 0
 ```
 
@@ -107,25 +107,25 @@ the repository dashboard.
 
 ## 🆕 Recently Solved
 
+- 🆕 [Design Browser History](./1472-design-browser-history/README.md)
+- 🆕 [Odd Even Linked List](./0328-odd-even-linked-list/README.md)
+- 🆕 [Linked List Cycle](./0141-linked-list-cycle/README.md)
+- 🆕 [Remove Nth Node From End of List](./0019-remove-nth-node-from-end-of-list/README.md)
 - 🆕 [Middle of the Linked List](./0876-middle-of-the-linked-list/README.md)
-- 🆕 [Merge Two Sorted Lists](./0021-merge-two-sorted-lists/README.md)
-- 🆕 [Add Two Numbers](./0002-add-two-numbers/README.md)
-- 🆕 [Koko Eating Bananas](./0875-koko-eating-bananas/README.md)
-- 🆕 [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md)
 
 ## 📅 Monthly Activity
 
 | Month | Problems Solved |
 |-------|----------------:|
-| July 2026 | 8 |
+| July 2026 | 12 |
 
 ## 🏷️ Top Topics
 
-- **Linked List** : 3
-- **Array** : 2
+- **Linked List** : 7
+- **Two Pointers** : 4
+- **Array** : 3
+- **Hash Table** : 2
 - **Math** : 2
-- **Recursion** : 2
-- **Binary Search** : 2
 
 ---
 
@@ -137,7 +137,7 @@ the repository dashboard.
 | AI README Generator | ✅ |
 | GitHub Actions | ✅ |
 | Root README Generator | ✅ |
-| Last Updated | **22 Jul 2026 08:13** |
+| Last Updated | **23 Jul 2026 07:59** |
 
 ---
 
@@ -151,12 +151,16 @@ the repository dashboard.
 |---:|---------|------------|-----------:|--------|:------:|
 | 0001 | [Two Sum](./0001-two-sum/README.md) | 🟢 Easy | 57.84% | Array, Hash Table | ✅ |
 | 0002 | [Add Two Numbers](./0002-add-two-numbers/README.md) | 🟠 Medium | 48.92% | Linked List, Math, Recursion | ✅ |
+| 0019 | [Remove Nth Node From End of List](./0019-remove-nth-node-from-end-of-list/README.md) | 🟠 Medium | 52.14% | Linked List, Two Pointers | ✅ |
 | 0021 | [Merge Two Sorted Lists](./0021-merge-two-sorted-lists/README.md) | 🟢 Easy | 68.60% | Linked List, Recursion | ✅ |
+| 0141 | [Linked List Cycle](./0141-linked-list-cycle/README.md) | 🟢 Easy | 54.73% | Hash Table, Linked List, Two Pointers | ✅ |
 | 0278 | [First Bad Version](./0278-first-bad-version/README.md) | 🟢 Easy | 47.38% | Binary Search, Interactive | ✅ |
+| 0328 | [Odd Even Linked List](./0328-odd-even-linked-list/README.md) | 🟠 Medium | 62.67% | Linked List | ✅ |
 | 0504 | [Base 7](./0504-base-7/README.md) | 🟢 Easy | 54.90% | Math, String | ✅ |
 | 0557 | [Reverse Words in a String III](./0557-reverse-words-in-a-string-iii/README.md) | 🟢 Easy | 84.08% | Two Pointers, String | ✅ |
 | 0875 | [Koko Eating Bananas](./0875-koko-eating-bananas/README.md) | 🟠 Medium | 50.27% | Array, Binary Search | ✅ |
 | 0876 | [Middle of the Linked List](./0876-middle-of-the-linked-list/README.md) | 🟢 Easy | 82.15% | Linked List, Two Pointers | ✅ |
+| 1472 | [Design Browser History](./1472-design-browser-history/README.md) | 🟠 Medium | 78.39% | Array, Linked List, Stack | ✅ |
 
 </details>
 
@@ -244,43 +248,3 @@ Computer Science Engineering Student
 
 Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 </div>
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
-## Linked List
-|  |
-| ------- |
-| [0019-remove-nth-node-from-end-of-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0019-remove-nth-node-from-end-of-list) |
-| [0141-linked-list-cycle](https://github.com/Somu0707/leetcode-solutions/tree/master/0141-linked-list-cycle) |
-| [0328-odd-even-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0328-odd-even-linked-list) |
-| [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
-## Stack
-|  |
-| ------- |
-| [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
-## Design
-|  |
-| ------- |
-| [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
-## Doubly-Linked List
-|  |
-| ------- |
-| [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
-## Data Stream
-|  |
-| ------- |
-| [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
-## Two Pointers
-|  |
-| ------- |
-| [0019-remove-nth-node-from-end-of-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0019-remove-nth-node-from-end-of-list) |
-| [0141-linked-list-cycle](https://github.com/Somu0707/leetcode-solutions/tree/master/0141-linked-list-cycle) |
-## Hash Table
-|  |
-| ------- |
-| [0141-linked-list-cycle](https://github.com/Somu0707/leetcode-solutions/tree/master/0141-linked-list-cycle) |
-<!---LeetCode Topics End-->

@@ -1,101 +1,93 @@
 ## 💭 Thought Process
 
-When approaching this problem, a naive strategy might be to convert both linked lists into standard integers, sum them up, and then convert the result back into a linked list. 
+When approaching this problem, a naive first attempt might be to convert both linked lists into standard integer types, add them together, and then construct a new linked list from the resulting sum. 
 
-However, this brute-force approach quickly fails. The problem constraints state that each linked list can contain up to 100 nodes. A 100-digit number far exceeds the storage capacity of standard primitive data types such as `long long` or 64-bit integers, leading to arithmetic overflow.
+However, this approach quickly fails due to variable size limits. The problem constraints state that lists can contain up to 100 nodes. A 100-digit number far exceeds the capacity of standard 64-bit primitive types (`long long` or `unsigned long long`), leading to integer overflow.
 
-To solve this efficiently without integer overflow, we can make an important observation: **the digits are stored in reverse order**. This means the head of each linked list contains the least significant digit (the ones place). 
-
-This reverse alignment is advantageous because standard arithmetic addition also starts from the least significant digit and works its way to the left while maintaining a `carry`. Thus, we can process both lists node-by-node simultaneously, adding corresponding digits along with any carry from the previous step.
+By observing how addition is performed by hand, we notice that digits are processed from right to left (least significant to most significant), keeping track of a carry value. Since the problem naturally gives us the numbers in **reverse order**, the heads of the lists represent the least significant digits. This allows us to simulate elementary school addition digit-by-digit in a single pass without needing to convert the entire list into an integer.
 
 ---
 
 ## 💡 Intuition
 
-The algorithm mimics elementary school addition:
+The core insight is to traverse both linked lists simultaneously from head to tail, building a new linked list digit-by-digit while maintaining a running `carry`.
 
-- We traverse both linked lists starting from their heads (the least significant digits).
-- At each step, we sum the values of the current nodes along with a `carry` variable.
-- The new digit for our result list is `sum % 10`.
-- The updated carry for the next position is `sum / 10`.
-- A **dummy head node** is used to simplify building the output linked list, avoiding unnecessary conditional checks for the head node.
-
-This approach ensures we process each digit in constant time without needing to store the entire giant integer in memory.
+- **Digit-by-digit simulation**: At any position, the new digit's value is `(val1 + val2 + carry) % 10`.
+- **Carry propagation**: The new carry value transferred to the next higher place value is `(val1 + val2 + carry) / 10`.
+- **Dummy Node Pattern**: Using a sentinel (dummy) node at the beginning simplifies pointer management, eliminating the need for special checks when inserting the very first node of the result list.
 
 ---
 
 ## 🚀 Approach
 
-1. **Initialize Helpers**: Create a `dummy` node to serve as the start of the result list, a pointer `temp` to track the tail of the new list, and an integer `carry` set to `0`.
-2. **Iterate Through Lists**: Continue looping as long as `l1` is not empty, `l2` is not empty, OR `carry` is greater than `0`.
-3. **Calculate Digit Sum**:
-   - Extract `l1.val` if `l1` exists, otherwise use `0`.
-   - Extract `l2.val` if `l2` exists, otherwise use `0`.
-   - Add these values along with `carry` to calculate `sum`.
-4. **Update Carry and Result List**:
-   - Compute new `carry` as `sum / 10`.
+1. **Initialize Helpers**: Create a `dummy` node to serve as the anchor for the result list, and maintain a pointer `temp` to track the tail of the new list. Initialize `carry` to `0`.
+2. **Iterate with Conditions**: Traverse as long as there is still a node to process in `l1`, a node in `l2`, or a remaining `carry > 0`.
+3. **Calculate Current Sum**:
+   - Extract the value from `l1` if `l1` is not null, then move `l1` forward.
+   - Extract the value from `l2` if `l2` is not null, then move `l2` forward.
+   - Add the previous `carry` to the sum.
+4. **Update Carry and Create Node**:
+   - Calculate the new carry: `carry = sum / 10`.
    - Create a new node with value `sum % 10` and append it to `temp.next`.
-   - Move `temp` forward.
-5. **Advance Pointers**: Move `l1` and `l2` to their respective next nodes if available.
-6. **Return Result**: Return `dummy.next`, which points to the head of the newly formed list.
+   - Advance `temp` to point to the newly added node.
+5. **Return Result**: Return `dummy.next`, which points to the actual head of the sum list.
 
 ---
 
 ## 🧠 Algorithm
 
-1. Initialize `dummy = Node(0)`, `temp = dummy`, and `carry = 0`.
-2. While `l1 != null` OR `l2 != null` OR `carry > 0`:
-   1. Set `sum = carry`.
-   2. If `l1` is not null:
-      - `sum = sum + l1.val`
-      - `l1 = l1.next`
-   3. If `l2` is not null:
-      - `sum = sum + l2.val`
-      - `l2 = l2.next`
-   4. `carry = sum / 10`
-   5. `temp.next = Node(sum % 10)`
-   6. `temp = temp.next`
+1. Initialize `dummy` node, set `temp = dummy`, and set `carry = 0`.
+2. While `l1` is not null OR `l2` is not null OR `carry` is not 0:
+    1. Set `sum = carry`.
+    2. If `l1` is not null:
+        - Add `l1.val` to `sum`.
+        - Advance `l1 = l1.next`.
+    3. If `l2` is not null:
+        - Add `l2.val` to `sum`.
+        - Advance `l2 = l2.next`.
+    4. Update `carry = sum / 10`.
+    5. Create `newNode` with value `sum % 10`.
+    6. Attach `temp.next = newNode` and advance `temp = temp.next`.
 3. Return `dummy.next`.
 
 ---
 
 ## 🔍 Dry Run
 
-Let's trace the algorithm using `l1 = [2, 4, 3]` (representing 342) and `l2 = [5, 6, 4]` (representing 465):
+Let's walk through an example: `l1 = [2, 4, 3]` and `l2 = [5, 6, 4]`.
 
-| Step | `l1.val` | `l2.val` | `carry` (In) | `sum` | `sum % 10` (New Node) | `carry` (Out) | Output List |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Start** | - | - | 0 | - | - | 0 | `[]` |
-| **1** | 2 | 5 | 0 | 2 + 5 + 0 = 7 | 7 | 0 | `[7]` |
-| **2** | 4 | 6 | 0 | 4 + 6 + 0 = 10 | 0 | 1 | `[7, 0]` |
-| **3** | 3 | 4 | 1 | 3 + 4 + 1 = 8 | 8 | 0 | `[7, 0, 8]` |
+| Iteration | `l1.val` | `l2.val` | Incoming `carry` | Total `sum` | New Digit (`sum % 10`) | New `carry` (`sum / 10`) | Result List State |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Start** | - | - | - | - | - | 0 | `[]` |
+| **1** | 2 | 5 | 0 | $2 + 5 + 0 = 7$ | **7** | **0** | `[7]` |
+| **2** | 4 | 6 | 0 | $4 + 6 + 0 = 10$ | **0** | **1** | `[7 -> 0]` |
+| **3** | 3 | 4 | 1 | $3 + 4 + 1 = 8$ | **8** | **0** | `[7 -> 0 -> 8]` |
 
-**Termination**: Both `l1` and `l2` are `null`, and `carry` is `0`. Loop ends.  
-**Result**: The returned list is `[7, 0, 8]` (representing 807), which is correct.
+**End Condition**: `l1` is NULL, `l2` is NULL, and `carry` is 0. Traversal ends.
+**Output**: `[7, 0, 8]` (representing $342 + 465 = 807$).
 
 ---
 
 ## ⚠️ Edge Cases
 
-- **Unequal List Lengths**: One list may be longer than the other (e.g., `[9, 9]` + `[1]`). Missing values are treated as `0`.
-- **Remaining Carry at the End**: Adding `[9, 9]` and `[1]` produces `[0, 0, 1]`. The loop condition `carry > 0` ensures the final carry creates an additional node at the end.
-- **Single Element Zeroes**: Input like `[0]` + `[0]` correctly outputs `[0]`.
+- **Unequal Length Lists**: One list runs out of nodes before the other (e.g., `[9, 9]` + `[1]`). Handled by checking `l1 != NULL` and `l2 != NULL` independently; missing nodes default to `0`.
+- **Extra Carry at the End**: The addition produces a carry that extends the result length (e.g., `[5]` + `[5]` = `[0, 1]`). Including `carry` in the `while` loop condition ensures a final node is created for any remaining carry.
+- **Single Zero Inputs**: `[0]` + `[0]` outputs `[0]` correctly without looping infinitely.
 
 ---
 
 ## ⏱️ Complexity Analysis
 
 ### Time Complexity
-- **$\mathcal{O}(\max(N, M))$**: Where $N$ and $M$ are the lengths of `l1` and `l2` respectively. We iterate at most $\max(N, M) + 1$ times since we process one node from each list per iteration.
+- **$\mathcal{O}(\max(N, M))$**: Where $N$ is the number of nodes in `l1` and $M$ is the number of nodes in `l2`. The loop runs at most $\max(N, M) + 1$ times because we process each node from both lists at most once.
 
 ### Space Complexity
-- **$\mathcal{O}(\max(N, M))$**: The length of the new linked list is at most $\max(N, M) + 1$ to store the result nodes.
+- **$\mathcal{O}(\max(N, M))$**: The algorithm creates a new linked list to store the result, which contains at most $\max(N, M) + 1$ nodes. Auxiliary pointer space is $\mathcal{O}(1)$.
 
 ---
 
 ## 🎯 Key Takeaways
 
-- Dummy head nodes simplify linked list construction by removing boundary condition checks for the head node.
-- Simulating digit-by-digit math avoids standard integer overflow issues when dealing with large numbers.
-- Including condition flags like `carry > 0` directly in the loop head avoids duplicate code after traversal ends.
-- Aligning problem representation (reverse order) with algorithmic direction often drastically simplifies implementation.
+- **Simulate Basic Arithmetic**: Complex large-number additions can be performed digit-by-digit to avoid integer overflow issues.
+- **Dummy Heads Simplify Lists**: Using dummy nodes removes redundant dynamic memory edge-case handling for the head node.
+- **Loop Condition Flexibility**: Combining multiple exit conditions (`l1`, `l2`, and `carry`) inside a single `while` loop reduces code duplication.

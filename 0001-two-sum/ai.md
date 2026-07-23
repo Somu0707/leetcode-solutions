@@ -1,81 +1,95 @@
 ## 💭 Thought Process
 
-When approaching this problem, the initial inclination might be to test every possible pair of numbers in the array to see if their sum equals the `target`. This brute-force approach uses two nested loops: for each element, we iterate through the remainder of the array to search for a matching complement. However, checking all pairs requires $O(n^2)$ time, which quickly becomes too slow as the size of the array grows.
+When approaching the **Two Sum** problem, the most straightforward idea is to test every possible pair of numbers in the array to see if their sum equals the `target`. 
 
-To optimize, we need to ask: **Can we find the required complement faster than scanning the entire array every time?**
+This brute-force approach requires two nested loops:
+- The outer loop picks the first number.
+- The inner loop iterates through the rest of the array to find a second number such that `nums[i] + nums[j] == target`.
 
-For any given number $x$, the required complement that completes the sum is fixed: $\text{complement} = \text{target} - x$. Instead of actively searching for this complement in future iterations, we can flip the perspective—as we move through the array, we can remember the numbers we have already seen and their indices. If the complement of the current number is among the previously seen numbers, we have instantly found our pair!
+While this works, checking all pairs takes **$\mathcal{O}(N^2)$** time complexity. Given that the array size $N$ can be up to $10^4$, an $\mathcal{O}(N^2)$ solution would perform up to $10^8$ operations, which is far too slow for optimal performance.
+
+To improve this, we need to ask: *Can we find the required second number without scanning the array again?*
+
+If we rewrite the equation:
+$$\text{nums}[i] + \text{complement} = \text{target} \implies \text{complement} = \text{target} - \text{nums}[i]$$
+
+This simple mathematical shift reveals that for every number we encounter, we are looking for a specific target **complement**. If we can store numbers we have already seen in a data structure that allows **$\mathcal{O}(1)$ average lookup time**, we can solve the problem in a single pass.
 
 ---
 
 ## 💡 Intuition
 
-The key insight is transforming a **search problem** into a **lookup problem**.
+The key insight is to trade a small amount of extra memory for a dramatic speedup in execution time.
 
-- **Why a Hash Map?** Hash maps provide constant-time $O(1)$ average complexity for insertions and lookups. By mapping each visited element's value to its index, we can immediately query whether the needed complement has already been processed.
-- **Why a Single Pass?** We don't need to populate the entire map beforehand. By checking for the complement *before* adding the current number to the map, we achieve two goals:
-  1. We prevent an element from matching with itself.
-  2. We naturally handle duplicate numbers without overriding required indices prematurely.
+Instead of searching forward for a matching number, we store each element and its index as we iterate. As we move to the next element, we look *backward* to see if its complement has already been processed and saved.
+
+A **Hash Map (Unordered Map)** is the ideal data structure for this task because:
+1. It maps each element value (key) to its original array index (value).
+2. It allows us to check if the `complement` exists in constant time $\mathcal{O}(1)$ on average.
 
 ---
 
 ## 🚀 Approach
 
-1. Initialize an empty hash map where keys represent array values and values represent their respective zero-based indices.
-2. Iterate through the array from left to right:
-   1. Calculate the required complement for the current element: `complement = target - current_element`.
-   2. Query the hash map for the `complement`.
-   3. **If found**: Return the index of the complement (retrieved from the hash map) along with the current index.
-   4. **If not found**: Store the `current_element` as the key and its index as the value in the hash map.
-3. Because the problem guarantees exactly one valid solution, the iteration is guaranteed to locate and return the matching pair.
+1. **Initialize a Hash Map**: Create an empty hash map to keep track of previously seen numbers and their corresponding indices (`value -> index`).
+2. **Iterate Through the Array**: Loop through `nums` index by index ($i = 0$ to $N-1$).
+3. **Calculate Complement**: For the current element `nums[i]`, compute `complement = target - nums[i]`.
+4. **Check Hash Map**:
+   - If `complement` is already present in the map, we have found our pair! Return the current index $i$ and the stored index of `complement`.
+   - If `complement` is not in the map, store the current element and its index (`map[nums[i]] = i`) so future elements can look it up.
+5. **Return Result**: Return the indices once the match is found.
 
 ---
 
 ## 🧠 Algorithm
 
-1. Initialize `map` as an empty Hash Table.
-2. For index `i` from `0` to `size(nums) - 1`:
-   1. Set `complement = target - nums[i]`.
-   2. If `complement` exists in `map`:
-      - Return `[i, map[complement]]`.
-   3. Store `map[nums[i]] = i`.
-3. Return an empty result if no solution exists (fallback).
+```text
+1. Initialize an empty hash map 'seen'.
+2. For each index 'i' from 0 to length(nums) - 1:
+    a. Calculate complement = target - nums[i].
+    b. If complement exists in 'seen':
+        i. Return [i, seen[complement]].
+    c. Add key nums[i] with value 'i' to 'seen'.
+3. Return an empty array if no pair is found.
+```
 
 ---
 
 ## 🔍 Dry Run
 
-Let's trace the algorithm with `nums = [2, 7, 11, 15]` and `target = 9`:
+Let's trace the algorithm with an example:  
+`nums = [2, 7, 11, 15]`, `target = 9`
 
-| Step | Index (`i`) | Value (`nums[i]`) | Complement (`9 - nums[i]`) | Map State Before Step | Map Lookup Result | Action |
+| Step | Index ($i$) | Current Value (`nums[i]`) | Complement (`9 - nums[i]`) | Map State BEFORE step | Is Complement in Map? | Action |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **1** | `0` | `2` | `9 - 2 = 7` | `{}` | `7` not in map | Add `2: 0` to map |
-| **2** | `1` | `7` | `9 - 7 = 2` | `{2: 0}` | `2` found at index `0` | Return `[1, 0]` |
+| 1 | `0` | `2` | `9 - 2 = 7` | `{}` | ❌ No | Add `{2: 0}` to map |
+| 2 | `1` | `7` | `9 - 7 = 2` | `{2: 0}` | ✅ Yes! (found at index `0`) | Return indices `[1, 0]` |
 
-The algorithm terminates immediately at Step 2 and returns `[1, 0]`.
+The execution finishes in just **2 iterations**!
 
 ---
 
 ## ⚠️ Edge Cases
 
-- **Negative Numbers**: Works seamlessly because subtraction correctly evaluates negative complements (e.g., if `target = -3` and `nums[i] = -5`, then `complement = -3 - (-5) = 2`).
-- **Duplicate Values**: Handled safely. If `nums = [3, 3]` and `target = 6`, when processing the second `3`, the complement `3` is already present in the hash map from the first element, so the match is detected before any overwriting occurs.
-- **Minimum Array Length ($N = 2$)**: Handled without extra logic since the loop evaluates both elements and finds the match on the second iteration.
+- **Duplicate Values in Array (e.g., `nums = [3, 3]`, `target = 6`)**: By checking for the complement *before* adding the current number to the hash map, we avoid matching an element with itself. When the second `3` is processed, the first `3` is already stored in the map, correctly triggering a match.
+- **Negative Numbers (e.g., `nums = [-3, 4, 3]`, `target = 0`)**: The subtraction `target - nums[i]` naturally handles negative values without needing any special logic.
+- **Large Inputs**: The hash map lookup keeps execution time linear even for the maximum constraint $N = 10^4$.
 
 ---
 
 ## ⏱️ Complexity Analysis
 
 ### Time Complexity
-$\mathcal{O}(N)$: We traverse the array containing $N$ elements at most once. For each element, hash map lookups and insertions take $\mathcal{O}(1)$ average time.
+- **$\mathcal{O}(N)$**: We traverse the array of length $N$ at most once. For each element, hash map lookups and insertions take $\mathcal{O}(1)$ average time complexity.
 
 ### Space Complexity
-$\mathcal{O}(N)$: In the worst-case scenario, we may need to store up to $N - 1$ elements in the hash map before finding a matching pair.
+- **$\mathcal{O}(N)$**: In the worst-case scenario, we may store up to $N - 1$ elements in the hash map before finding a match.
 
 ---
 
 ## 🎯 Key Takeaways
 
-- Hash maps trade space ($\mathcal{O}(N)$) to significantly reduce time complexity from quadratic ($\mathcal{O}(N^2)$) to linear ($\mathcal{O}(N)$).
-- Reformulating mathematical problems to look for complements (`target - current`) simplifies lookups.
-- Building the hash map dynamically during a single pass prevents self-matching and gracefully handles duplicates.
+- **Hash maps enable constant-time lookups**, reducing search overhead from $\mathcal{O}(N)$ to $\mathcal{O}(1)$.
+- **Reframing the problem** from $a + b = \text{target}$ to $b = \text{target} - a$ simplifies search logic.
+- **Space-Time Trade-off**: Spending extra memory ($\mathcal{O}(N)$ space) allows us to achieve optimal execution time ($\mathcal{O}(N)$ time).
+- **Single-pass lookup**: Populating the map dynamically on-the-fly prevents self-matching issues and avoids the need for a separate preprocessing loop.

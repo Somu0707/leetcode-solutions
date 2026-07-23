@@ -1,48 +1,58 @@
 ## 💭 Thought Process
 
-When approaching this problem, a simple starting point is to test every version sequentially from $1$ to $n$ using the `isBadVersion` API. The first version that returns `true` would be our answer. However, for a maximum value of $n = 2^{31} - 1$, a linear scan could require over 2 billion API calls in the worst case, making it far too slow.
+When approaching this problem, a simple brute-force idea is to iterate linearly through all versions from `1` to `n` and call `isBadVersion(i)` for each version `i`. The first version that returns `true` would be our answer.
 
-To optimize, we look for a structural pattern in the data. Once a version is bad, all subsequent versions are guaranteed to be bad. This means the array of versions is implicitly divided into two distinct contiguous blocks:
-`[false, false, ..., false, true, true, ..., true]`
+However, since `n` can be as large as $2^{31} - 1$, a linear scan would require up to $O(n)$ API calls, leading to a Time Limit Exceeded (TLE) error. 
 
-This monotonic property (a transition from `false` to `true` at exactly one threshold point) allows us to eliminate half of the remaining choices with a single check. Instead of checking every element, we can use **Binary Search** to find the boundary in logarithmic time.
+To optimize this, we must look for a pattern in the data:
+- Once a version is bad, **all subsequent versions are also bad**.
+- This creates a sorted sequence of boolean states: `[false, false, ..., true, true]`.
+
+This monotonic property (a sequence transitioning from one state to another without flipping back) is a classic indicator that we can use **Binary Search** to find the boundary in logarithmic time.
 
 ---
 
 ## 💡 Intuition
 
-The key insight is that the versions are sorted by state: all good versions appear before all bad versions.
+The key insight is that the search space is divided into two continuous segments:
+1. **Good versions** (`isBadVersion(v) == false`) on the left.
+2. **Bad versions** (`isBadVersion(v) == true`) on the right.
 
-- **Why Binary Search works**: Checking the middle version (`mid`) gives definitive information about where the first bad version lies:
-  - If `isBadVersion(mid)` is `true`, then `mid` is a bad version. It could be the *first* bad version, or the first bad version lies somewhere to its left. We save `mid` as a candidate solution and search the left half.
-  - If `isBadVersion(mid)` is `false`, then `mid` and all versions before it are good. The first bad version must be strictly to the right of `mid`.
-- **Why it is efficient**: Each API call eliminates half of the remaining search space, drastically reducing the number of calls from $O(n)$ to $O(\log n)$.
+Our goal is to find the transition point—the first occurrence of `true`.
+
+By selecting a middle point `mid`:
+- If `isBadVersion(mid)` is `true`, `mid` could be the first bad version, or the first bad version exists somewhere to its **left**. We record `mid` as a potential answer and narrow our search to the left half.
+- If `isBadVersion(mid)` is `false`, all versions up to `mid` are guaranteed to be good. The first bad version must lie strictly to its **right**.
+
+Using this logic, we halve the search space at each step, drastically reducing the number of API calls needed.
 
 ---
 
 ## 🚀 Approach
 
-1. **Initialize Search Range**: Set `low = 1` and `high = n` to cover all possible versions. Maintain a variable `ans` initialized to `n` to store the smallest bad version index found so far.
-2. **Search Loop**: Execute a loop while `low <= high`:
-   - Calculate the midpoint `mid` safely using `low + (high - low) / 2`.
-   - Call `isBadVersion(mid)`:
-     - **If `true`**: Mark `ans = mid` as a candidate answer, and narrow the search space to the left half (`high = mid - 1`) to check if an even earlier bad version exists.
-     - **If `false`**: Exclude `mid` and all preceding versions by shifting the search space to the right half (`low = mid + 1`).
-3. **Return Result**: Once `low > high`, the search terminates, and `ans` will hold the index of the first bad version.
+1. **Initialize Search Space**: Set `low = 1` and `high = n`. Maintain a variable `ans` initialized to `n` to keep track of the minimal bad version found so far.
+2. **Binary Search Loop**: Continue looping while `low <= high`:
+   - Calculate the midpoint `mid` safely to avoid integer overflow: `mid = low + (high - low) / 2`.
+   - Call the `isBadVersion(mid)` API.
+   - If `mid` is a bad version (`true`):
+     - Update `ans = mid` (this might be the first bad version).
+     - Search the left range (`high = mid - 1`) to check if an even earlier bad version exists.
+   - If `mid` is a good version (`false`):
+     - Search the right range (`low = mid + 1`).
+3. **Return Answer**: When `low > high`, the search terminates, and `ans` holds the first bad version.
 
 ---
 
 ## 🧠 Algorithm
 
-1. Initialize `low = 1`, `high = n`, and `ans = n`.
+1. Set `low = 1`, `high = n`, and `ans = n`.
 2. While `low <= high`:
-   a. Compute `mid = low + (high - low) / 2`.
-   b. Call `isBadVersion(mid)`:
-      - If `true`:
-        - Set `ans = mid`.
-        - Set `high = mid - 1`.
-      - Else:
-        - Set `low = mid + 1`.
+   1. Compute `mid = low + (high - low) / 2`.
+   2. If `isBadVersion(mid)` is `true`:
+      - Set `ans = mid`.
+      - Set `high = mid - 1`.
+   3. Else:
+      - Set `low = mid + 1`.
 3. Return `ans`.
 
 ---
@@ -53,10 +63,10 @@ Let $n = 5$ and the first bad version be $4$.
 
 | Step | `low` | `high` | `mid` | `isBadVersion(mid)` | Action | `ans` |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Initial | `1` | `5` | - | - | Initialize search boundary | `5` |
-| **Iter 1** | `1` | `5` | `3` | `false` | Version 3 is good; move right (`low = 4`) | `5` |
-| **Iter 2** | `4` | `5` | `4` | `true` | Version 4 is bad; save candidate and check left (`high = 3`) | `4` |
-| **End** | `4` | `3` | - | - | Loop terminates as `low > high` | **`4`** |
+| **Start** | `1` | `5` | - | - | Initialize boundaries | `5` |
+| **Iter 1**| `1` | `5` | `3` | `false` | Version 3 is Good $\rightarrow$ Move right (`low = 4`) | `5` |
+| **Iter 2**| `4` | `5` | `4` | `true` | Version 4 is Bad $\rightarrow$ Update `ans = 4`, move left (`high = 3`) | `4` |
+| **End** | `4` | `3` | - | - | Loop terminates as `low > high` | `4` |
 
 **Final Output**: `4`
 
@@ -64,26 +74,25 @@ Let $n = 5$ and the first bad version be $4$.
 
 ## ⚠️ Edge Cases
 
-- **Single Version ($n = 1$)**: The range is `[1, 1]`. The loop runs once, evaluates `mid = 1`, updates `ans = 1`, and correctly returns `1`.
-- **First Version is Bad ($bad = 1$)**: `isBadVersion` returns `true` on early iterations, causing `high` to continuously shift left until `ans` settles on `1`.
-- **Last Version is Bad ($bad = n$)**: `isBadVersion` returns `false` until `mid` reaches `n`, causing `low` to shift right until `ans` settles on `n`.
-- **Integer Overflow**: Calculating `mid` as `(low + high) / 2` can cause integer overflow when `low + high` exceeds $2^{31} - 1$. Using `low + (high - low) / 2` avoids overflow entirely.
+- **Single Version ($n = 1$)**: The loop runs once with `low = 1`, `high = 1`, `mid = 1`, correctly identifying if version 1 is bad.
+- **First Version is Bad ($bad = 1$)**: The algorithm continuously updates `ans` and moves `high` to the left until `high = 0`, returning `1`.
+- **Last Version is Bad ($bad = n$)**: The algorithm repeatedly shifts `low` to the right until it reaches `n`, returning `n`.
+- **Integer Overflow**: Using `mid = low + (high - low) / 2` prevents overflow when $n$ is close to $2^{31} - 1$, which would occur if calculated as `(low + high) / 2`.
 
 ---
 
 ## ⏱️ Complexity Analysis
 
 ### Time Complexity
-- **$\mathcal{O}(\log n)$**: In each step, the search space is halved. For $n = 2^{31} - 1$, the maximum number of API calls made will be at most $31$.
+$\mathcal{O}(\log n)$: The search space is divided in half at each iteration, requiring at most $\lceil\log_2 n\rceil$ calls to `isBadVersion`.
 
 ### Space Complexity
-- **$\mathcal{O}(1)$**: The algorithm only uses a few scalar variables (`low`, `high`, `mid`, `ans`) to keep track of state, consuming constant memory.
+$\mathcal{O}(1)$: The algorithm uses a fixed number of variables (`low`, `high`, `mid`, `ans`), requiring constant auxiliary space.
 
 ---
 
 ## 🎯 Key Takeaways
 
-- Binary Search is applicable to any monotonic domain (e.g., `[false, ..., false, true, ..., true]`), not just explicitly sorted numerical arrays.
-- Always calculate midpoints as `low + (high - low) / 2` to protect against 32-bit signed integer overflow.
-- When searching for a boundary, keep track of the best valid candidate found so far while continuing to shrink the search window.
-- Minimizing expensive operations (like network/API calls) is a primary practical use case for logarithmic algorithms.
+- Binary Search can be applied to any search space that displays a **monotonic property** (e.g., `[false, ..., false, true, ..., true]`).
+- Always calculate midpoints as `low + (high - low) / 2` to prevent potential 32-bit signed integer overflow.
+- Storing candidate answers in a variable (`ans`) during binary search simplifies boundary management when searching for first or last occurrences.
