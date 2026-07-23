@@ -254,6 +254,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## Linked List
 |  |
 | ------- |
+| [0328-odd-even-linked-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0328-odd-even-linked-list) |
 | [1472-design-browser-history](https://github.com/Somu0707/leetcode-solutions/tree/master/1472-design-browser-history) |
 ## Stack
 |  |
