@@ -1,24 +1,28 @@
 class Solution {
 public:
-    int next_greater(const vector<int>& nums2, int a){
-        //find the element
-        int i;
-        for(i=0;i<nums2.size();i++){
-            if(nums2[i]==a) break;
-        }
-        i++;
-        while(i<nums2.size()){
-            if(nums2[i]>a) return nums2[i];
-            i++;
-        }
-        return -1;
-    }
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> ans;
-        for(int i=0;i<nums1.size();i++){
-            int x= next_greater(nums2, nums1[i]);
-            ans.push_back(x);
+
+        unordered_map<int, int> mp;
+        stack<int> st;
+
+        for (int i = nums2.size() - 1; i >= 0; i--) {
+
+            while(!st.empty() && st.top()<nums2[i])
+            st.pop();
+
+            if (st.empty())
+                mp[nums2[i]] = -1;
+            else
+                mp[nums2[i]] = st.top();
+
+            st.push(nums2[i]);
         }
+
+        vector<int> ans;
+
+        for (int x : nums1)
+            ans.push_back(mp[x]);
+
         return ans;
     }
 };
