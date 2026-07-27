@@ -274,6 +274,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | ------- |
 | [0496-next-greater-element-i](https://github.com/Somu0707/leetcode-solutions/tree/master/0496-next-greater-element-i) |
 | [0682-baseball-game](https://github.com/Somu0707/leetcode-solutions/tree/master/0682-baseball-game) |
+| [1464-maximum-product-of-two-elements-in-an-array](https://github.com/Somu0707/leetcode-solutions/tree/master/1464-maximum-product-of-two-elements-in-an-array) |
 ## Simulation
 |  |
 | ------- |
@@ -286,4 +287,12 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0496-next-greater-element-i](https://github.com/Somu0707/leetcode-solutions/tree/master/0496-next-greater-element-i) |
+## Sorting
+|  |
+| ------- |
+| [1464-maximum-product-of-two-elements-in-an-array](https://github.com/Somu0707/leetcode-solutions/tree/master/1464-maximum-product-of-two-elements-in-an-array) |
+## Heap (Priority Queue)
+|  |
+| ------- |
+| [1464-maximum-product-of-two-elements-in-an-array](https://github.com/Somu0707/leetcode-solutions/tree/master/1464-maximum-product-of-two-elements-in-an-array) |
 <!---LeetCode Topics End-->
