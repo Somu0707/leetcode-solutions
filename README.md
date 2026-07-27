@@ -265,6 +265,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0143-reorder-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0143-reorder-list) |
 | [0496-next-greater-element-i](https://github.com/Somu0707/leetcode-solutions/tree/master/0496-next-greater-element-i) |
 | [0682-baseball-game](https://github.com/Somu0707/leetcode-solutions/tree/master/0682-baseball-game) |
+| [1614-maximum-nesting-depth-of-the-parentheses](https://github.com/Somu0707/leetcode-solutions/tree/master/1614-maximum-nesting-depth-of-the-parentheses) |
 ## Recursion
 |  |
 | ------- |
@@ -295,4 +296,8 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [1464-maximum-product-of-two-elements-in-an-array](https://github.com/Somu0707/leetcode-solutions/tree/master/1464-maximum-product-of-two-elements-in-an-array) |
+## String
+|  |
+| ------- |
+| [1614-maximum-nesting-depth-of-the-parentheses](https://github.com/Somu0707/leetcode-solutions/tree/master/1614-maximum-nesting-depth-of-the-parentheses) |
 <!---LeetCode Topics End-->
