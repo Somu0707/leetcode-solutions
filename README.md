@@ -263,8 +263,17 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0143-reorder-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0143-reorder-list) |
+| [0682-baseball-game](https://github.com/Somu0707/leetcode-solutions/tree/master/0682-baseball-game) |
 ## Recursion
 |  |
 | ------- |
 | [0143-reorder-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0143-reorder-list) |
+## Array
+|  |
+| ------- |
+| [0682-baseball-game](https://github.com/Somu0707/leetcode-solutions/tree/master/0682-baseball-game) |
+## Simulation
+|  |
+| ------- |
+| [0682-baseball-game](https://github.com/Somu0707/leetcode-solutions/tree/master/0682-baseball-game) |
 <!---LeetCode Topics End-->
