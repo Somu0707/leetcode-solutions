@@ -292,6 +292,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## Hash Table
 |  |
 | ------- |
+| [0076-minimum-window-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0076-minimum-window-substring) |
 | [0496-next-greater-element-i](https://github.com/Somu0707/leetcode-solutions/tree/master/0496-next-greater-element-i) |
 ## Monotonic Stack
 |  |
@@ -309,6 +310,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## String
 |  |
 | ------- |
+| [0076-minimum-window-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0076-minimum-window-substring) |
 | [0844-backspace-string-compare](https://github.com/Somu0707/leetcode-solutions/tree/master/0844-backspace-string-compare) |
 | [1614-maximum-nesting-depth-of-the-parentheses](https://github.com/Somu0707/leetcode-solutions/tree/master/1614-maximum-nesting-depth-of-the-parentheses) |
 ## Design
@@ -324,4 +326,8 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0232-implement-queue-using-stacks](https://github.com/Somu0707/leetcode-solutions/tree/master/0232-implement-queue-using-stacks) |
 | [0622-design-circular-queue](https://github.com/Somu0707/leetcode-solutions/tree/master/0622-design-circular-queue) |
 | [0950-reveal-cards-in-increasing-order](https://github.com/Somu0707/leetcode-solutions/tree/master/0950-reveal-cards-in-increasing-order) |
+## Sliding Window
+|  |
+| ------- |
+| [0076-minimum-window-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0076-minimum-window-substring) |
 <!---LeetCode Topics End-->
