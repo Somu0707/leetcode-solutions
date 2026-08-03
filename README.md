@@ -338,6 +338,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0101-symmetric-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0112-path-sum) |
+| [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
 ## Depth-First Search
 |  |
@@ -346,6 +347,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0101-symmetric-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0112-path-sum) |
+| [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
 ## Breadth-First Search
 |  |
@@ -353,6 +355,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0101-symmetric-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0112-path-sum) |
+| [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
 ## Binary Tree
 |  |
@@ -361,5 +364,6 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0101-symmetric-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0112-path-sum) |
+| [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
 <!---LeetCode Topics End-->
