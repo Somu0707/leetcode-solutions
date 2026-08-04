@@ -279,6 +279,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## Array
 |  |
 | ------- |
+| [0108-convert-sorted-array-to-binary-search-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0496-next-greater-element-i](https://github.com/Somu0707/leetcode-solutions/tree/master/0496-next-greater-element-i) |
 | [0622-design-circular-queue](https://github.com/Somu0707/leetcode-solutions/tree/master/0622-design-circular-queue) |
 | [0682-baseball-game](https://github.com/Somu0707/leetcode-solutions/tree/master/0682-baseball-game) |
@@ -337,6 +338,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0094-binary-tree-inorder-traversal](https://github.com/Somu0707/leetcode-solutions/tree/master/0094-binary-tree-inorder-traversal) |
 | [0101-symmetric-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0104-maximum-depth-of-binary-tree) |
+| [0108-convert-sorted-array-to-binary-search-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0112-path-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0112-path-sum) |
 | [0129-sum-root-to-leaf-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0129-sum-root-to-leaf-numbers) |
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
@@ -372,6 +374,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0094-binary-tree-inorder-traversal](https://github.com/Somu0707/leetcode-solutions/tree/master/0094-binary-tree-inorder-traversal) |
 | [0101-symmetric-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0104-maximum-depth-of-binary-tree) |
+| [0108-convert-sorted-array-to-binary-search-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0112-path-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0112-path-sum) |
 | [0129-sum-root-to-leaf-numbers](https://github.com/Somu0707/leetcode-solutions/tree/master/0129-sum-root-to-leaf-numbers) |
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
@@ -382,6 +385,11 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## Binary Search Tree
 |  |
 | ------- |
+| [0108-convert-sorted-array-to-binary-search-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0108-convert-sorted-array-to-binary-search-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
 <!---LeetCode Topics End-->
