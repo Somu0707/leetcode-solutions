@@ -342,6 +342,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
 | [0617-merge-two-binary-trees](https://github.com/Somu0707/leetcode-solutions/tree/master/0617-merge-two-binary-trees) |
+| [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -353,6 +354,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
 | [0617-merge-two-binary-trees](https://github.com/Somu0707/leetcode-solutions/tree/master/0617-merge-two-binary-trees) |
+| [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
 ## Breadth-First Search
 |  |
 | ------- |
@@ -373,4 +375,9 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
 | [0617-merge-two-binary-trees](https://github.com/Somu0707/leetcode-solutions/tree/master/0617-merge-two-binary-trees) |
+| [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
+## Binary Search Tree
+|  |
+| ------- |
+| [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
 <!---LeetCode Topics End-->
