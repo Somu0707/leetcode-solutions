@@ -344,6 +344,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
+| [0515-find-largest-value-in-each-tree-row](https://github.com/Somu0707/leetcode-solutions/tree/master/0515-find-largest-value-in-each-tree-row) |
 | [0617-merge-two-binary-trees](https://github.com/Somu0707/leetcode-solutions/tree/master/0617-merge-two-binary-trees) |
 | [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
 ## Depth-First Search
@@ -357,6 +358,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
+| [0515-find-largest-value-in-each-tree-row](https://github.com/Somu0707/leetcode-solutions/tree/master/0515-find-largest-value-in-each-tree-row) |
 | [0617-merge-two-binary-trees](https://github.com/Somu0707/leetcode-solutions/tree/master/0617-merge-two-binary-trees) |
 | [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
 ## Breadth-First Search
@@ -367,6 +369,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0112-path-sum](https://github.com/Somu0707/leetcode-solutions/tree/master/0112-path-sum) |
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
+| [0515-find-largest-value-in-each-tree-row](https://github.com/Somu0707/leetcode-solutions/tree/master/0515-find-largest-value-in-each-tree-row) |
 | [0617-merge-two-binary-trees](https://github.com/Somu0707/leetcode-solutions/tree/master/0617-merge-two-binary-trees) |
 ## Binary Tree
 |  |
@@ -380,6 +383,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0226-invert-binary-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0226-invert-binary-tree) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0404-sum-of-left-leaves](https://github.com/Somu0707/leetcode-solutions/tree/master/0404-sum-of-left-leaves) |
+| [0515-find-largest-value-in-each-tree-row](https://github.com/Somu0707/leetcode-solutions/tree/master/0515-find-largest-value-in-each-tree-row) |
 | [0617-merge-two-binary-trees](https://github.com/Somu0707/leetcode-solutions/tree/master/0617-merge-two-binary-trees) |
 | [0938-range-sum-of-bst](https://github.com/Somu0707/leetcode-solutions/tree/master/0938-range-sum-of-bst) |
 ## Binary Search Tree
