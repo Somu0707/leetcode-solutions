@@ -284,6 +284,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0622-design-circular-queue](https://github.com/Somu0707/leetcode-solutions/tree/master/0622-design-circular-queue) |
 | [0682-baseball-game](https://github.com/Somu0707/leetcode-solutions/tree/master/0682-baseball-game) |
 | [0950-reveal-cards-in-increasing-order](https://github.com/Somu0707/leetcode-solutions/tree/master/0950-reveal-cards-in-increasing-order) |
+| [1436-destination-city](https://github.com/Somu0707/leetcode-solutions/tree/master/1436-destination-city) |
 | [1464-maximum-product-of-two-elements-in-an-array](https://github.com/Somu0707/leetcode-solutions/tree/master/1464-maximum-product-of-two-elements-in-an-array) |
 ## Simulation
 |  |
@@ -296,6 +297,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | ------- |
 | [0076-minimum-window-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0076-minimum-window-substring) |
 | [0496-next-greater-element-i](https://github.com/Somu0707/leetcode-solutions/tree/master/0496-next-greater-element-i) |
+| [1436-destination-city](https://github.com/Somu0707/leetcode-solutions/tree/master/1436-destination-city) |
 ## Monotonic Stack
 |  |
 | ------- |
@@ -314,6 +316,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | ------- |
 | [0076-minimum-window-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0076-minimum-window-substring) |
 | [0844-backspace-string-compare](https://github.com/Somu0707/leetcode-solutions/tree/master/0844-backspace-string-compare) |
+| [1436-destination-city](https://github.com/Somu0707/leetcode-solutions/tree/master/1436-destination-city) |
 | [1614-maximum-nesting-depth-of-the-parentheses](https://github.com/Somu0707/leetcode-solutions/tree/master/1614-maximum-nesting-depth-of-the-parentheses) |
 ## Design
 |  |
