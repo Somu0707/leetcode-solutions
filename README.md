@@ -399,4 +399,12 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/Somu0707/leetcode-solutions/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
+## Graph Theory
+|  |
+| ------- |
+| [1557-minimum-number-of-vertices-to-reach-all-nodes](https://github.com/Somu0707/leetcode-solutions/tree/master/1557-minimum-number-of-vertices-to-reach-all-nodes) |
+## Directed Acyclic Graph
+|  |
+| ------- |
+| [1557-minimum-number-of-vertices-to-reach-all-nodes](https://github.com/Somu0707/leetcode-solutions/tree/master/1557-minimum-number-of-vertices-to-reach-all-nodes) |
 <!---LeetCode Topics End-->
