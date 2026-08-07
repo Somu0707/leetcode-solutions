@@ -287,6 +287,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | [0950-reveal-cards-in-increasing-order](https://github.com/Somu0707/leetcode-solutions/tree/master/0950-reveal-cards-in-increasing-order) |
 | [1436-destination-city](https://github.com/Somu0707/leetcode-solutions/tree/master/1436-destination-city) |
 | [1464-maximum-product-of-two-elements-in-an-array](https://github.com/Somu0707/leetcode-solutions/tree/master/1464-maximum-product-of-two-elements-in-an-array) |
+| [3898-find-the-degree-of-each-vertex](https://github.com/Somu0707/leetcode-solutions/tree/master/3898-find-the-degree-of-each-vertex) |
 ## Simulation
 |  |
 | ------- |
@@ -406,6 +407,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [1557-minimum-number-of-vertices-to-reach-all-nodes](https://github.com/Somu0707/leetcode-solutions/tree/master/1557-minimum-number-of-vertices-to-reach-all-nodes) |
+| [3898-find-the-degree-of-each-vertex](https://github.com/Somu0707/leetcode-solutions/tree/master/3898-find-the-degree-of-each-vertex) |
 ## Directed Acyclic Graph
 |  |
 | ------- |
@@ -414,4 +416,5 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 |  |
 | ------- |
 | [0733-flood-fill](https://github.com/Somu0707/leetcode-solutions/tree/master/0733-flood-fill) |
+| [3898-find-the-degree-of-each-vertex](https://github.com/Somu0707/leetcode-solutions/tree/master/3898-find-the-degree-of-each-vertex) |
 <!---LeetCode Topics End-->
