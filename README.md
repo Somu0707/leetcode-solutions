@@ -259,6 +259,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## Two Pointers
 |  |
 | ------- |
+| [0005-longest-palindromic-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0005-longest-palindromic-substring) |
 | [0143-reorder-list](https://github.com/Somu0707/leetcode-solutions/tree/master/0143-reorder-list) |
 | [0844-backspace-string-compare](https://github.com/Somu0707/leetcode-solutions/tree/master/0844-backspace-string-compare) |
 ## Stack
@@ -316,6 +317,7 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 ## String
 |  |
 | ------- |
+| [0005-longest-palindromic-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0005-longest-palindromic-substring) |
 | [0076-minimum-window-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0076-minimum-window-substring) |
 | [0844-backspace-string-compare](https://github.com/Somu0707/leetcode-solutions/tree/master/0844-backspace-string-compare) |
 | [1436-destination-city](https://github.com/Somu0707/leetcode-solutions/tree/master/1436-destination-city) |
@@ -417,4 +419,12 @@ Built with ❤️ using Python • GitHub Actions • Google Gemini AI
 | ------- |
 | [0733-flood-fill](https://github.com/Somu0707/leetcode-solutions/tree/master/0733-flood-fill) |
 | [3898-find-the-degree-of-each-vertex](https://github.com/Somu0707/leetcode-solutions/tree/master/3898-find-the-degree-of-each-vertex) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0005-longest-palindromic-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0005-longest-palindromic-substring) |
+## Manacher
+|  |
+| ------- |
+| [0005-longest-palindromic-substring](https://github.com/Somu0707/leetcode-solutions/tree/master/0005-longest-palindromic-substring) |
 <!---LeetCode Topics End-->
